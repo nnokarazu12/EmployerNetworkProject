@@ -35,17 +35,17 @@
     </div>
     <script>
         window.addEventListener('load', function () {
-            if (localStorage.getItem('schoolname') == undefined) {
+            if (localStorage.getItem('schoolname') === undefined) {
                 document.getElementById('cschool').value = "Not Specified";
             } else {
                 document.getElementById('cschool').value = localStorage.getItem('schoolname');
             }
-            if (localStorage.getItem('degree') == undefined) {
+            if (localStorage.getItem('degree') === undefined) {
                 document.getElementById('cdegree').value = "Not Specified";
             } else {
                 document.getElementById('cdegree').value = localStorage.getItem('degree');
             }
-            if (localStorage.getItem('year') == undefined) {
+            if (localStorage.getItem('year') === undefined) {
                 document.getElementById('cyear').value = "Not Specified";
             } else {
                 document.getElementById('cyear').value = localStorage.getItem('year');

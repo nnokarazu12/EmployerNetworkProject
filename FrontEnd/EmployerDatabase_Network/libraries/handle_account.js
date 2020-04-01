@@ -2,8 +2,8 @@
 
 //Define Global Specs
 var Current_token = "";
-var CurrentUser = {};
-var WebApi_URL = "http://api.loot.agency:28015/";
+CurrentUser = {uuid:"",accounttype:"",AccountData:{},ProfileData:{}};
+var WebApi_URL = "http://192.168.0.238:28015/";
 var User_Token = "";
 var User_Structure = {};
 
@@ -25,29 +25,32 @@ function User_Signup(User_NewEmail, User_NewPassword) {
         firstname: document.getElementById('sfirstname').value,
         lastname: document.getElementById('slastname').value
     };
-    let SignupData = POSTRequest("api/v2/Auth/CreateAccount",Temp_Login);
-    if (SignupData.uuid) {
-        //we got a UUID From the server so the account was created so print success
-        console.log("Account Created Successfully");
-        CurrentUser = SignupData;
-        //Save the structure to storage
-        localStorage.setItem('CurrentUser', CurrentUser);
-        User_login(Temp_Login.email, Temp_Login.password);
-    } else {
-        console.log("Account was not created successfully")
-    }
+     POSTRequest("api/v2/Auth/CreateAccount",Temp_Login)
+        .then((data) => {
+            if (data.uuid) {
+                //we got a UUID From the server so the account was created so print success
+                console.log("Account Created Successfully");
+                //Save the structure to storage
+                User_login(Temp_Login.email, Temp_Login.password);
+            } else {
+                console.log("Account was not created successfully")
+            }
+        });
 }
 function User_login(User_NewEmail, User_NewPassword) {
+
     let Temp_Login = { email: User_NewEmail, password: User_NewPassword };
-    let LoginData = POSTRequest("api/v2/Auth/Login",Temp_Login);
-    //login request sent
-            if (LoginData.oauth2.token) {
-                CurrentUser.AccountData = LoginData;
+    POSTRequest("api/v2/Auth/Login",Temp_Login)
+        .then((data) => {
+            //login request sent
+            if (data.oauth2.token) {
+                CurrentUser = {uuid:"",accounttype:"",AccountData:{},ProfileData:{}};
+                CurrentUser.AccountData = data;
                 Current_token = data.oauth2.token;
-                console.log("Login Success => API Token: ["+data.oauth2.token+"]");
+                console.log("Login Success => API Token: [" + data.oauth2.token + "]");
                 //Create storage variable for token
                 localStorage.setItem('current_token', Current_token);
-                localStorage.setItem('CurrentUser', CurrentUser);
+                localStorage.setItem('CurrentUser', JSON.stringify(CurrentUser));
                 //Fetch the user Profile
                 Get_Profile();
                 //update the webpage
@@ -57,49 +60,67 @@ function User_login(User_NewEmail, User_NewPassword) {
             } else {
                 console.log("Error: [Login Failed]");
             }
+        })
 }
 
 function Get_Profile() {
+    User_Token = localStorage.getItem('current_token');
+    if (!User_Token) {
+        return console.log("Error: [Get Request Made with no Login Token] ");
+    }
     //Send Request to get Profile For user
-   let TempProfile = GetRequest("api/v2/data/profile");
-
-            if (TempProfile) {
-                //Pull from localstorage first!!
-                CurrentUser = localStorage.getItem('CurrentUser');
-                CurrentUser.ProfileData = TempProfile;
-                //localStorage.setItem('profile_data', CurrentUser.ProfileData);
-                //localStorage.setItem('firstname', CurrentUser.ProfileData.info.firstname);
-                //localStorage.setItem('lastname', CurrentUser.ProfileData.info.lastname);
-               // localStorage.setItem('schoolname', data.education.schoolname);
-               // localStorage.setItem('degree', data.education.degreename);
-               // localStorage.setItem('year', data.education.degreeyear);
-                console.log("Profile Fetch Success => ProfileData: "+TempProfile);
-            } else {
-                console.log("Error: [GET Failed]");
-            }
+    GetRequest("api/v2/data/profile")
+        .then((data) => {
+        if (data) {
+            //Pull from localstorage first!!
+           let CurrentUser = JSON.parse(localStorage.getItem('CurrentUser'));
+            console.log("LOGGGG: "+ data.info.lastname);
+            //CurrentUser.ProfileData = data;
+            console.log(CurrentUser);
+            CurrentUser.ProfileData = data;
+            //CurrentUser.ProfileData.info.lastname = data.info.lastname;
+            //localStorage.setItem('profile_data', CurrentUser.ProfileData);
+            //localStorage.setItem('firstname', CurrentUser.ProfileData.info.firstname);
+            //localStorage.setItem('lastname', CurrentUser.ProfileData.info.lastname);
+            // localStorage.setItem('schoolname', data.education.schoolname);
+            // localStorage.setItem('degree', data.education.degreename);
+            // localStorage.setItem('year', data.education.degreeyear);
+            localStorage.setItem('CurrentUser', JSON.stringify(CurrentUser));
+            console.log("Profile Fetch Success => ProfileData: " + data);
+        } else {
+            console.log("Error: [GET Failed]");
+        }
+    })
 }
 
 //Add Course
 function Profile_AddNewCourse(CourseCode) {
+    User_Token = localStorage.getItem('current_token');
+    if (!User_Token) {
+        return console.log("Error: [Get Request Made with no Login Token] ");
+    }
     let CourseSrruct = { coursecode: CourseCode };
-    let Temp_Course = POSTRequest("api/v2/data/Profile/Education/courses",CourseSrruct);
-            if (Temp_Course) {
+     POSTRequest("192.168.0.238:28015/api/v2/data/Profile/Education/courses",CourseSrruct)
+        .then((data) => {
+            if (data) {
                 console.log("Updated CourseCode to Profile");
-                CurrentUser = localStorage.getItem('CurrentUser');
-                CurrentUser.ProfileData.education.Courses.push(Temp_Course);
+                let CurrentUser = JSON.parse(localStorage.getItem('CurrentUser'));
+                CurrentUser.ProfileData.education.Courses.push(data);
                 let TempSchool = localStorage.getItem('School');
                 TempSchool.courses.push(data);
                 localStorage.setItem('School', TempSchool);
-                localStorage.setItem('CurrentUser', CurrentUser);
+                localStorage.setItem('CurrentUser', JSON.stringify(CurrentUser));
             } else {
                 console.log("Error In Fetch Call")
             }
+        })
 }
 
 function POST_Profile(school, degree, year) {
-    Current_token = localStorage.getItem('current_token');
-    if (!Current_token) {
-        return console.log("Error Login First");
+
+    User_Token = localStorage.getItem('current_token');
+    if (!User_Token) {
+        return console.log("Error: [Get Request Made with no Login Token] ");
     }
     let TempData = {
         education: {
@@ -108,14 +129,14 @@ function POST_Profile(school, degree, year) {
             degreeyear: year
         }
     };
-    postData('http://api.loot.agency:28015/api/v2/data/profile?token=' + Current_token, TempData)
+    postData('http://192.168.0.238:28015/api/v2/data/profile?token=' + User_Token, TempData)
         .then((data) => {
             console.log(data);
             if (data) {
-                console.log("Pushed Profile Data Sucessfully");
-                CurrentUser = localStorage.getItem('CurrentUser');
+                console.log("Pushed Profile Data Sucessfully",data);
+                let  CurrentUser = JSON.parse(localStorage.getItem('CurrentUser'));
                 CurrentUser.ProfileData = data;
-                localStorage.setItem('CurrentUser', CurrentUser);
+                localStorage.setItem('CurrentUser', JSON.stringify(CurrentUser));
                 Get_Profile(Current_token);
                 setTimeout(function () {
                     location.href = "student_profile.html";
@@ -143,13 +164,9 @@ function UpdateProfile(school, degree, year) {
 }
 
 
-function GetRequest (API_Endpoint)  {
-    User_Token = localStorage.getItem('current_token');
-    if (!User_Token) {
-        return console.log("Error: [Get Request Made with no Login Token] ");
-    }
+async function GetRequest (API_Endpoint)  {
     //User has login token Make request
-    getData(WebApi_URL+API_Endpoint+'?token=' + User_Token)
+    const response = await getData(''+WebApi_URL+API_Endpoint+'?token=' + User_Token)
         .then((data) => {
             if (data) {
                 //Data Pulled successfully
@@ -160,15 +177,12 @@ function GetRequest (API_Endpoint)  {
                 console.log("LOG: Data Get at endpoint "+API_Endpoint+" Failed");
             }
         });
-    return -1;
-};
-function POSTRequest (API_Endpoint,JSONData) {
-    User_Token = localStorage.getItem('current_token');
-    if (!User_Token) {
-        return console.log("Error: [Get Request Made with no Login Token] ");
-    }
+    return await response;
+}
+async function POSTRequest(API_Endpoint,JSONData) {
+
     //User has login token Make request
-    postData(WebApi_URL+API_Endpoint+'?token=' + User_Token,JSONData)
+    const response = await postData(''+WebApi_URL+API_Endpoint+'?token=' + User_Token,JSONData)
         .then((data) => {
             if (data) {
                 //Data Pulled successfully
@@ -179,5 +193,39 @@ function POSTRequest (API_Endpoint,JSONData) {
                 console.log("LOG: Data POST at endpoint "+API_Endpoint+" Failed");
             }
         });
-    return -1;
-};
+    return await response;
+}
+// Example POST method implementation:
+async function postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *client
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return await response.json(); // parses JSON response into native JavaScript objects
+}
+async function getData(url = '', data = {}) {
+    const response = await fetch(url, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            // 'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *client
+        //  body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return await response.json(); // parses JSON response into native JavaScript objects
+}
