@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Edit profile</title>
+    <link href="index.css" rel="stylesheet"/>
+    <script src="libraries/handle_account.js"></script>
+</head>
+<body>
+    <div class="banner">
+        <p>Edit Profile</p>
+        <p class="sign-off">Log Off</p>
+    </div>
+    <div id="edit-form-container">
+        <div id="edit-form-head">
+            <p>Update Information</p>
+        </div>
+        <div id="edit-form-body">
+            <label class="label" for="cschool">Update School Name</label>
+            <br /><br />
+            <input class="input-field" id="cschool" value="" />
+            <br /><br />
+            <label class="label" for="cdegree">Update Degree</label>
+            <br /> <br />
+            <input class="input-field" id="cdegree" value="" />
+
+            <br /><br />
+            <label class="label" for="cyear">Update Graduation Year</label>
+            <br /> <br />
+            <input class="input-field" id="cyear" value="" />
+            <br /><br /><br />
+            <input type="submit" class="form-button" value="Update" onclick="POST_Profile(document.getElementById('cschool').value,
+        document.getElementById('cdegree').value, document.getElementById('cyear').value)"/>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function () {
+            if (localStorage.getItem('schoolname') == undefined) {
+                document.getElementById('cschool').value = "Not Specified";
+            } else {
+                document.getElementById('cschool').value = localStorage.getItem('schoolname');
+            }
+            if (localStorage.getItem('degree') == undefined) {
+                document.getElementById('cdegree').value = "Not Specified";
+            } else {
+                document.getElementById('cdegree').value = localStorage.getItem('degree');
+            }
+            if (localStorage.getItem('year') == undefined) {
+                document.getElementById('cyear').value = "Not Specified";
+            } else {
+                document.getElementById('cyear').value = localStorage.getItem('year');
+            }
+        });
+    </script>
+</body>
+</html>
