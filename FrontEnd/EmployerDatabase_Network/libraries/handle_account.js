@@ -31,6 +31,9 @@ function User_Signup(User_NewEmail, User_NewPassword) {
                 //we got a UUID From the server so the account was created so print success
                 console.log("Account Created Successfully");
                 //Save the structure to storage
+                CurrentUser = {uuid:"",accounttype:"",AccountData:{},ProfileData:{}};
+                CurrentUser = data;
+                localStorage.setItem('CurrentUser', JSON.stringify(CurrentUser));
                 User_login(Temp_Login.email, Temp_Login.password);
             } else {
                 console.log("Account was not created successfully")
@@ -44,7 +47,10 @@ function User_login(User_NewEmail, User_NewPassword) {
         .then((data) => {
             //login request sent
             if (data.oauth2.token) {
-                CurrentUser = {uuid:"",accounttype:"",AccountData:{},ProfileData:{}};
+                let CurrentUser = JSON.parse(localStorage.getItem('CurrentUser'));
+                if(!CurrentUser){
+                    CurrentUser = {uuid:"",accounttype:"",AccountData:{},ProfileData:{}};
+                }
                 CurrentUser.AccountData = data;
                 Current_token = data.oauth2.token;
                 console.log("Login Success => API Token: [" + data.oauth2.token + "]");
@@ -54,9 +60,20 @@ function User_login(User_NewEmail, User_NewPassword) {
                 //Fetch the user Profile
                 Get_Profile();
                 //update the webpage
-                setTimeout(function () {
-                    location.href = "student_profile.html";
-                }, 100);
+                //redierct to correct page
+                CurrentUser = JSON.parse(localStorage.getItem('CurrentUser'));
+                if(!(CurrentUser.accounttype === "employer")){
+                    setTimeout(function () {
+                        location.href = "student_profile.html";
+                    }, 100);
+                }else{
+                    setTimeout(function () {
+                        location.href = "employer_profile.html";
+                    }, 100);
+                }
+
+
+
             } else {
                 console.log("Error: [Login Failed]");
             }
