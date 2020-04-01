@@ -1,0 +1,178 @@
+[
+  {
+    "SchoolName": "Capitol Tech",
+    "SchoolID": "7xrGCjKnEnQBB3oxP8K2iw==",
+    "Courses_offered": [
+      {
+        "CourseName": "Android Application Development",
+        "CourseCode": "CS-305",
+        "CourseID": "i8JRpv/U7Gr0PgVui0ItHQ==",
+        "CourseTags": [
+          "Android",
+          "Java"
+        ]
+      },
+      {
+        "CourseName": "Agile Methods for Software Eng",
+        "CourseCode": "CS-452",
+        "CourseID": "lTGZDDrRw7HFiINVZeuLbA==",
+        "CourseTags": [
+          "Development",
+          "JavaScript"
+        ]
+      },
+      {
+        "CourseName": "Software Testing",
+        "CourseCode": "CS-551",
+        "CourseID": "gkdOKgNN02AL3PTP16zaiw==",
+        "CourseTags": [
+          "Python",
+          "Perl"
+        ]
+      },
+      {
+        "CourseName": "Scripting Languages",
+        "CourseCode": "CT-206",
+        "CourseID": "BIAbSCdcAW+h6a+Jn//igg==",
+        "CourseTags": [
+          "Python",
+          "Perl"
+        ]
+      },
+      {
+        "CourseName": "Data Structures",
+        "CourseCode": "CS-230",
+        "CourseID": "l3rOWUnecTOcapeubXyxcA==",
+        "CourseTags": [
+          "C++",
+          "Java"
+        ]
+      },
+      {
+        "CourseName": "Computer Algorithms",
+        "CourseCode": "CS-310",
+        "CourseID": "S9UzklBN3Bz/D82jOVanSQ==",
+        "CourseTags": [
+          "C++",
+          "JavaScript"
+        ]
+      },
+      {
+        "CourseName": "Intelligent Systems",
+        "CourseCode": "CS-316",
+        "CourseID": "fjxXrfcfEmoSQ9uBTnTAAg==",
+        "CourseTags": [
+          "Python"
+        ]
+      },
+      {
+        "CourseName": "Dynamic Web Page Development",
+        "CourseCode": "CS-356",
+        "CourseID": "ezJWhY4QulPcLs5T/JZZ0w==",
+        "CourseTags": [
+          ".NET",
+          "C#"
+        ]
+      },
+      {
+        "CourseName": "Operating Systems",
+        "CourseCode": "CS-418",
+        "CourseID": "P0W0dhbza3nPEsBvhss9QA==",
+        "CourseTags": [
+          "Python",
+          "C++"
+        ]
+      },
+      {
+        "CourseName": "Introduction to UNIX",
+        "CourseCode": "CT-152",
+        "CourseID": "0yctRfOqen+9y4Anywn9bQ==",
+        "CourseTags": [
+          "Bash",
+          "C"
+        ]
+      },
+      {
+        "CourseName": "Javascript",
+        "CourseCode": "CT-376",
+        "CourseID": "9yKjoWyimQ1LjAXJB2fl2Q==",
+        "CourseTags": [
+          "Javascript"
+        ]
+      },
+      {
+        "CourseName": "Computer Architecture",
+        "CourseCode": "EE-364",
+        "CourseID": "50OjIt/2QV/FvyugJDqoow==",
+        "CourseTags": [
+          "Assembily"
+        ]
+      },
+      {
+        "CourseName": "Digital Electronics",
+        "CourseCode": "EL-204",
+        "CourseID": "lDPpciiAia/NwRUMFk3h1Q==",
+        "CourseTags": [
+          "Assembily"
+        ]
+      },
+      {
+        "CourseName": "English Communications I",
+        "CourseCode": "EN-101",
+        "CourseID": "NLJCuy63nTmls2/7RO5K4A==",
+        "CourseTags": [
+          "English"
+        ]
+      },
+      {
+        "CourseName": "Game Design and Theory",
+        "CourseCode": "HU-210",
+        "CourseID": "i6iNCWHxOd5nfG/A0ouXiQ==",
+        "CourseTags": [
+          "English"
+        ]
+      },
+      {
+        "CourseName": "Discrete Mathematics",
+        "CourseCode": "MA-124",
+        "CourseID": "qNe1kV2RbXaBZevD/Y0eKQ==",
+        "CourseTags": [
+          "Math"
+        ]
+      },
+      {
+        "CourseName": "Calculus I",
+        "CourseCode": "MA-261",
+        "CourseID": "XDHb3bPM849CB783n2jQhw==",
+        "CourseTags": [
+          "Math"
+        ]
+      },
+      {
+        "CourseName": "Group Dynamics",
+        "CourseCode": "SS-272",
+        "CourseID": "AyY6uTl+ELAy2UkguFhAMA==",
+        "CourseTags": [
+          "English"
+        ]
+      }
+    ],
+    "Degrees_offered": [
+      {
+        "DegreeName": "Computer Science",
+        "DegreeID": "qSPXG1l1D8BOOGD1z22OHA==",
+        "DegreeCourses": []
+      },
+      {
+        "DegreeName": "Cyber Security",
+        "DegreeID": "GyNnXRLYCa5e0GU5rcAGiQ==",
+        "DegreeCourses": []
+      }
+    ],
+    "Current_Students": [
+      {
+        "studentUUID": "2VHgwxKvrBlr8FlSGsSK8g=="
+      }
+    ]
+  }
+]

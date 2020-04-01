@@ -1,0 +1,14 @@
+{
+  "name": "csdatawebapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "William Wright",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "latest",
+    "cors": "^2.8.5"
+  }
+}

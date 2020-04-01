@@ -1,0 +1,74 @@
+[
+  {
+    "uuid": "yuFErwXghOW+AUhiXQG1aw==",
+    "accounttype": "Student",
+    "AccountData": {
+      "username": "Test@test.com",
+      "password": "Iw+ATLx7nmpwkTdkBC4RcQ==$Enq3zXYDbQ0UuOEL0EEzfKjMsohBnuTkhY02lH23obOkF/J16nyO4jWuv0PklG5KOCOBAkxEIqS08eK9FU8MCQ==",
+      "accounttype": "Student",
+      "oauth2": {
+        "token": "VKxXBfAfgh5nHz79yTh91cwH8pujSWcJleq7J+JWVis9L/hEjvWdF7yJVux+M+Komn2npe/FztKd6dOI1HR+eA==",
+        "salt": "ol/V1QCfc547govVJvXpDQ==",
+        "secret": "d0sGmU2vRjNCOoGrwxbzNA==",
+        "udid": "1qF5IMAmRvc="
+      }
+    },
+    "ProfileData": {
+      "info": {
+        "firstname": "William",
+        "lastname": "wri"
+      }
+    }
+  },
+  {
+    "uuid": "zg1Z2FeBhqpTjgIw/m08zQ==",
+    "accounttype": "accounttypein",
+    "AccountData": {
+      "username": "emailin",
+      "password": "bPD5hPIJ6dilia95pzRWKw==$jM8jyvuiZ780N00vB2VuOBXzSB6/+8rLpO679rKe5zqUO0cX2xXk4UuPmxUlTyWlV3BugvN6HZjJYCH+faeNyg==",
+      "accounttype": "accounttypein",
+      "oauth2": {
+        "token": "BqjDj+NiWMQld2oKtIu+HE0+a5cPSJDOD/IDPYX7JkrqQ7/GZGRLLiReLUp/xASFC+52A+yQ5DAOtGVHT2BcTA==",
+        "salt": "rmGEw37x2NTMWdDgaxxG6w==",
+        "secret": "DQyDMUJKAXCQgxW6vwo2Mg==",
+        "udid": "11LIj/onfYE="
+      }
+    },
+    "ProfileData": {
+      "info": {
+        "firstname": "TestFirst",
+        "lastname": "TestLast",
+        "phonenumber": "7035555555",
+        "email": "Test@test.com"
+      },
+      "education": {
+        "schoolname": "CapitolTech",
+        "degreename": "Testname",
+        "degreeyear": "2021"
+      },
+      "work": {
+        "employername": "BigLootCo",
+        "jobtitle": "Loot Finder",
+        "timeworked": "2Y"
+      },
+      "personal": {
+        "bio": "This is the bio section where the bio is",
+        "pfp": "www.google.com/loot.jpg"
+      }
+    }
+  },
+  {
+    "uuid": "2VHgwxKvrBlr8FlSGsSK8g==",
+    "AccountData": {
+      "username": "wawright@captechu.edu",
+      "password": "f0DLUcxL7q3MkIqn16z3bg==$FgB/x0eOQWhvlUxHfdZ6mIq8F926/usa/hkTb6bvMv+RKA3skNsxn7CeW0EDO7pD5uyBjBL63nAZsLCktACJYQ==",
+      "oauth2": {}
+    },
+    "ProfileData": {
+      "info": {
+        "firstname": "William",
+        "lastname": "wr"
+      }
+    }
+  }
+]
