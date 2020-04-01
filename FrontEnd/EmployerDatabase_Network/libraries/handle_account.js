@@ -81,22 +81,19 @@ function Get_Profile() {
 
 //Add Course
 function Profile_AddNewCourse(CourseCode) {
-    let Current_token = localStorage.getItem('current_token');
-    if (!Current_token) {
-        return console.log("Error Login First");
-    }
-    postData('http://api.loot.agency:28015/api/v2/data/Profile/Education/courses?token=' + Current_token, { coursecode: CourseCode })
-        .then((data) => {
-            console.log(data);
-            if (data) {
+    let CourseSrruct = { coursecode: CourseCode };
+    let Temp_Course = POSTRequest("api/v2/data/Profile/Education/courses",CourseSrruct);
+            if (Temp_Course) {
                 console.log("Updated CourseCode to Profile");
+                CurrentUser = localStorage.getItem('CurrentUser');
+                CurrentUser.ProfileData.education.Courses.push(Temp_Course);
                 let TempSchool = localStorage.getItem('School');
                 TempSchool.courses.push(data);
                 localStorage.setItem('School', TempSchool);
+                localStorage.setItem('CurrentUser', CurrentUser);
             } else {
                 console.log("Error In Fetch Call")
             }
-        });
 }
 
 function POST_Profile(school, degree, year) {
@@ -111,30 +108,20 @@ function POST_Profile(school, degree, year) {
             degreeyear: year
         }
     };
-
     postData('http://api.loot.agency:28015/api/v2/data/profile?token=' + Current_token, TempData)
         .then((data) => {
-            console.log(data); // JSON data parsed by `response.json()` call
-            //we Expect the signup to ether return true or false
+            console.log(data);
             if (data) {
-                //we got a UUID From the server so the account was created so print sucess
                 console.log("Pushed Profile Data Sucessfully");
+                CurrentUser = localStorage.getItem('CurrentUser');
                 CurrentUser.ProfileData = data;
-                data.education = { schoolname: school, degreename: degree, degreeyear: year };
+                localStorage.setItem('CurrentUser', CurrentUser);
                 Get_Profile(Current_token);
-
                 setTimeout(function () {
                     location.href = "student_profile.html";
                 }, 50);
-                /*
-                localStorage.setItem('schoolname', school);
-                localStorage.setItem('degree', degree);
-                localStorage.setItem('year', year);
-                */
-                //TODO add response such as next page?
             } else {
                 console.log("Nothing in Account")
-                //TODO add response such as error box?
             }
         });
 }
