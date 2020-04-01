@@ -1,92 +1,84 @@
-﻿var urlwebapi = "api.loot.agency:28015/api/v2/";
+﻿
+
+//Define Global Specs
 var Current_token = "";
-var Current_UUID = "";
-var Current_Secret = "";
 var CurrentUser = {};
-//User_Signup("Test5","test","Student","w","e");
+var WebApi_URL = "http://api.loot.agency:28015/";
+var User_Token = "";
+var User_Structure = {};
 
-function User_Signup(emailin, passwordin) {
-    //Signup input fields
-    let semail = document.getElementById('semail').value;
-    let spassword = document.getElementById('spassword').value;
-    let saccounttype = document.getElementById('accounttype').value;
-    let firstName = document.getElementById('sfirstname').value;
-    let lastName = document.getElementById('slastname').value;
 
-    //Login input fields
-    let lemail = document.getElementById('email').value;
-    let lpassword = document.getElementById('password').value;
+//This function is designed to load the information from the backend api and sync it with the local storage
+//Requires Valid API Token
+function Load_userInfo (){
 
-    postData('http://api.loot.agency:28015/api/v2/Auth/CreateAccount', { email: emailin, password: passwordin, accounttype: saccounttype, firstname: firstName, lastname: lastName })
-        .then((data) => {
-            //console.log(data); // JSON data parsed by `response.json()` call
-            //we Expect the signup to ether return true or false
-            if (data.uuid) {
-                //we got a UUID From the server so the account was created so print success
-                console.log("Account Created Sucessfully");
-                CurrentUser = data;
-                User_login(emailin, passwordin);
-                //TODO add response such as next page?
-            } else {
-                console.log("Account was not created sucessfully")
-                //TODO add response such as error box?
-            }
-        });
+
+
 }
-function User_login(emailin, passwordin) {
-    //let lemail = document.getElementById('email').value;
-    //let lpassword = document.getElementById('password').value;
-    postData('http://api.loot.agency:28015/api/v2/Auth/Login', { email: emailin, password: passwordin })
-        .then((data) => {
-            console.log(data); // JSON data parsed by `response.json()` call
-            //we Expect the signup to ether return true or false
-            if (data.oauth2.token) {
-                //we got a UUID From the server so the account was created so print sucess
-                console.log("Login Successful");
-                CurrentUser.AccountData = data;
+
+function User_Signup(User_NewEmail, User_NewPassword) {
+    //Pull information from the webpage
+    let Temp_Login = {
+        email: document.getElementById('semail').value,
+        password: document.getElementById('spassword').value,
+        accounttype: document.getElementById('accounttype').value,
+        firstname: document.getElementById('sfirstname').value,
+        lastname: document.getElementById('slastname').value
+    };
+    let SignupData = POSTRequest("api/v2/Auth/CreateAccount",Temp_Login);
+    if (SignupData.uuid) {
+        //we got a UUID From the server so the account was created so print success
+        console.log("Account Created Successfully");
+        CurrentUser = SignupData;
+        //Save the structure to storage
+        localStorage.setItem('CurrentUser', CurrentUser);
+        User_login(Temp_Login.email, Temp_Login.password);
+    } else {
+        console.log("Account was not created successfully")
+    }
+}
+function User_login(User_NewEmail, User_NewPassword) {
+    let Temp_Login = { email: User_NewEmail, password: User_NewPassword };
+    let LoginData = POSTRequest("api/v2/Auth/Login",Temp_Login);
+    //login request sent
+            if (LoginData.oauth2.token) {
+                CurrentUser.AccountData = LoginData;
                 Current_token = data.oauth2.token;
+                console.log("Login Success => API Token: ["+data.oauth2.token+"]");
                 //Create storage variable for token
                 localStorage.setItem('current_token', Current_token);
-                Current_Secret = data.oauth2.secret;
-                //TODO add response such as next page?
-                Get_Profile(localStorage.getItem('current_token'));
+                localStorage.setItem('CurrentUser', CurrentUser);
+                //Fetch the user Profile
+                Get_Profile();
+                //update the webpage
                 setTimeout(function () {
                     location.href = "student_profile.html";
                 }, 100);
-                
             } else {
-                console.log("Account was not created successfully");
-                //TODO add response such as error box?
+                console.log("Error: [Login Failed]");
             }
-        });
 }
-function Get_Profile(token) {
-    Current_token = token;
-    if (!Current_token) {
-        return console.log("Error Login First");
-    }
-    getData('http://api.loot.agency:28015/api/v2/data/profile?token=' + Current_token)
-        .then((data) => {
-            console.log(data); // JSON data parsed by `response.json()` call
-            //we Expect the signup to ether return true or false
-            if (data) {
-                //we got a UUID From the server so the account was created so print sucess
-                console.log("Pulled Data Sucessfully");
-                CurrentUser.ProfileData = data;
-                localStorage.setItem('profile_data', CurrentUser.ProfileData);
-                localStorage.setItem('firstname', CurrentUser.ProfileData.info.firstname);
-                localStorage.setItem('lastname', CurrentUser.ProfileData.info.lastname);
-                localStorage.setItem('schoolname', data.education.schoolname);
-                localStorage.setItem('degree', data.education.degreename);
-                localStorage.setItem('year', data.education.degreeyear);
-                console.log(CurrentUser.ProfileData.info.firstname);
-                //TODO add response such as next page?
+
+function Get_Profile() {
+    //Send Request to get Profile For user
+   let TempProfile = GetRequest("api/v2/data/profile");
+
+            if (TempProfile) {
+                //Pull from localstorage first!!
+                CurrentUser = localStorage.getItem('CurrentUser');
+                CurrentUser.ProfileData = TempProfile;
+                //localStorage.setItem('profile_data', CurrentUser.ProfileData);
+                //localStorage.setItem('firstname', CurrentUser.ProfileData.info.firstname);
+                //localStorage.setItem('lastname', CurrentUser.ProfileData.info.lastname);
+               // localStorage.setItem('schoolname', data.education.schoolname);
+               // localStorage.setItem('degree', data.education.degreename);
+               // localStorage.setItem('year', data.education.degreeyear);
+                console.log("Profile Fetch Success => ProfileData: "+TempProfile);
             } else {
-                console.log("Nothing in Account")
-                //TODO add response such as error box?
+                console.log("Error: [GET Failed]");
             }
-        });
 }
+
 //Add Course
 function Profile_AddNewCourse(CourseCode) {
     let Current_token = localStorage.getItem('current_token');
@@ -127,7 +119,7 @@ function POST_Profile(school, degree, year) {
             if (data) {
                 //we got a UUID From the server so the account was created so print sucess
                 console.log("Pushed Profile Data Sucessfully");
-                CurrentUser.ProfileData = data;           
+                CurrentUser.ProfileData = data;
                 data.education = { schoolname: school, degreename: degree, degreeyear: year };
                 Get_Profile(Current_token);
 
@@ -163,36 +155,42 @@ function UpdateProfile(school, degree, year) {
     }, 50);
 }
 
-async function getData(url = '', data = {}) {
-    const response = await fetch(url, {
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            // 'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *client
-        //  body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return await response.json(); // parses JSON response into native JavaScript objects
-}
 
-async function postData(url = '', data = {}) {
-    const response = await fetch(url, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *client
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return await response.json(); // parses JSON response into native JavaScript objects
-}
+function GetRequest (API_Endpoint)  {
+    User_Token = localStorage.getItem('current_token');
+    if (!User_Token) {
+        return console.log("Error: [Get Request Made with no Login Token] ");
+    }
+    //User has login token Make request
+    getData(WebApi_URL+API_Endpoint+'?token=' + User_Token)
+        .then((data) => {
+            if (data) {
+                //Data Pulled successfully
+                console.log("LOG: Data Get at endpoint "+API_Endpoint+" Was Successful");
+                console.log(data);
+                return data;
+            } else {
+                console.log("LOG: Data Get at endpoint "+API_Endpoint+" Failed");
+            }
+        });
+    return -1;
+};
+function POSTRequest (API_Endpoint,JSONData) {
+    User_Token = localStorage.getItem('current_token');
+    if (!User_Token) {
+        return console.log("Error: [Get Request Made with no Login Token] ");
+    }
+    //User has login token Make request
+    postData(WebApi_URL+API_Endpoint+'?token=' + User_Token,JSONData)
+        .then((data) => {
+            if (data) {
+                //Data Pulled successfully
+                console.log("LOG: Data POST at endpoint "+API_Endpoint+" Was Successful");
+                console.log(data);
+                return data;
+            } else {
+                console.log("LOG: Data POST at endpoint "+API_Endpoint+" Failed");
+            }
+        });
+    return -1;
+};
