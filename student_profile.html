@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Profile</title>
+    <link href="index.css" rel="stylesheet" />
+    <script src="libraries/handle_account.js"></script>
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <div class="banner">
+        <p id="welcome">Welcome, <span id="student-name">Student</span></p>
+        <p class="sign-off" onclick="location.href='index.html'">Log Off</p>
+    </div>
+    <div id="grid">
+        <div class="grid-item">
+            <div id="profile-photo-container">
+                <img src="images/user.svg"/>
+            </div>
+            <div id="student-name-container"><p id="firstname-text">Firstname</p> <p id="lastname-text">Lastname</p></div>
+            <div class="prof-header" id="education-header"><p>Academic Information</p></div>
+            <div class="prof-header"id="school-head">School</div>
+            <div class="prof-content" id="school-name"></div>
+            <div class="prof-header" id="degree-head">Major</div>
+            <div class="prof-content" id="degree-name"></div>
+            <div class="prof-header" id="grad-year-head">Graduation Year</div>
+            <div class="prof-content" id="grad-year"></div>
+            <!--<div class="info-header"><p>Academic Status</p></div>-->
+            <div class="info-"></div>
+
+        </div>
+        <div class="grid-item" id="menu">
+            <div onclick="location.href = 'edit_profile.html'">
+                <p>Update Profile</p>
+            </div>
+            <div><p>Apply for Available Jobs</p></div>
+            <div><p>Other</p></div>
+
+        </div>
+        <div class="grid-item">
+            <div class="button" onclick="toggleCourseTab()">Add Courses +</div>
+            <div class="course-tab">Java</div>
+            <div id="course-data-box">
+                <label for="course-id-box">Course ID</label>
+                <input id="course-id-box"/>
+                <label for="course-name-box">Course Name</label>
+                <input id="course-name-box"/>
+                <div id="add-course-button">Add</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById('firstname-text').innerHTML = localStorage.getItem('firstname');
+            document.getElementById('lastname-text').innerHTML = localStorage.getItem('lastname');
+            document.getElementById('student-name').innerHTML = localStorage.getItem('firstname');
+
+            if (localStorage.getItem('schoolname') == undefined) {
+                document.getElementById('school-name').innerHTML = "Not Specified";
+            } else {
+                document.getElementById('school-name').innerHTML = localStorage.getItem('schoolname');
+            }
+            if (localStorage.getItem('degree') == undefined) {
+                document.getElementById('degree-name').innerHTML = "Not Specified";
+            } else {
+                document.getElementById('degree-name').innerHTML = localStorage.getItem('degree');
+            }
+            if (localStorage.getItem('year') == undefined) {
+                document.getElementById('grad-year').innerHTML = "Not Specified";
+            } else {
+                document.getElementById('grad-year').innerHTML = localStorage.getItem('year');
+            }
+        });
+
+        function clearFields() {
+            var inputItems = document.querySelectorAll(".input-field");
+        for (var i = 0; i < inputItems.length; i++) {
+            inputItems[i].value = "";
+        }
+        }
+        
+    </script>
+</body>
+</html>
