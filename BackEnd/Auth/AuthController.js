@@ -1,6 +1,7 @@
 //Auth controller will control the Auth of a user and making sure the data is stored correctly
 const crypto = require('crypto');
 const Users = require('../Data/ClientData.js');
+const Org = require ('../Data/EmployerData.js');
 
 //This functions hashs the users password for storing
 exports.HashPassword = (password) => {
@@ -45,6 +46,11 @@ exports.Login = (req, res) => {
 exports.LoginV2 = (req, res) => {
     //Get user Profile by email
     let UserProfile = Users.GetAccountDataByUserName(req.body.email);
+    //if -1 we check Orgs
+    if(UserProfile === -1){
+        UserProfile = Org.GetAccountDataByUserName(req.body.email);
+    }
+
     if (!UserProfile.password) {
         return res.status(200).send({result: false, reason: "No Account Exists With That Email"});
     }
@@ -55,6 +61,7 @@ exports.LoginV2 = (req, res) => {
         //The user Has Passed Password Check
         UserProfile.oauth2 = GenerateNewOath2Token(crypto.randomBytes(8).toString('base64'));
         Users.SaveallData();
+        Org.SaveallData();
         return res.status(200).send(UserProfile);
     } else {
         //The user Entered the incorrect Password

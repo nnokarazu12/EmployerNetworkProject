@@ -164,9 +164,9 @@ exports.MatchCode = (req, res) => {
     } else {
         profile = Users.GetUserByToken(req.body.token).ProfileData;
     }
-    profile.education.courses= [];
-    let TempUserCources = profile.education.courses;
-    TempUserCources.push(temptourse);
+    profile.education[profile.education.length-1].courses.push(temptourse);
+    Users.SaveallData();
+   // console.log(profile.education[profile.education.length-1].courses[profile.education[profile.education.length-1].courses.length-1]);
     return res.status(200).send(temptourse);
 };
 //function returns the school data to caller ending api call
@@ -255,7 +255,7 @@ function GetCourseByCourseCode(Course_Code) {
             }
         }
     }
-    return -1;
+    return {};
 }
 
 //Gets the Degree obj by Degree UUID EZindex

@@ -1,5 +1,7 @@
+
 const Users = require('../Data/ClientData.js');
 const bodyParser = require('body-parser');
+const Org = require ('../Data/EmployerData.js');
 
 //This function Helps parse the data inside the Body for the username and password
 exports.hasAuthValidFields = (req, res, next) => {
@@ -99,4 +101,66 @@ exports.ParseValidFields = (req, res, next) => {
     }
 
     return next();
+};
+//Create Search Function
+exports.SearchForJobWithTag = (Tags) => {
+    var JobSearchReturn = [];
+    var r = 0;
+    for(let i = 0;i<Tags.length;i++){
+        let Temp = Org.SearchWithTag(Tags[i]);
+        if(Temp !== []){
+            for(let k = 0;k<Temp.length;k++) {
+                r=0;
+                for(let l=0;l<JobSearchReturn.length;l++){
+                    if(JobSearchReturn[l].Job_Udid === Temp[k].Job_Udid){
+                        r=1;
+                    }
+                }
+                if(r===0){
+                    JobSearchReturn.push(Temp[k]);
+                }
+            }
+        }
+    }
+    return JobSearchReturn;
+};
+exports.SearchForStudentWithTag = (Tags) => {
+    var StudentSearchReturn = [];
+    let r = 0;
+    for(let i = 0;i<Tags.length;i++){
+        let Temp = Users.SearchWithTag(Tags[i]);
+        if(Temp !== []){
+            for(let k = 0;k<Temp.length;k++) {
+                r=0;
+                for(let l=0;l<StudentSearchReturn.length;l++){
+                    if(StudentSearchReturn[l].uuid === Temp[k].uuid){
+                        r=1;
+                    }
+                }
+                if(r===0){
+                    StudentSearchReturn.push(Temp[k]);
+                }
+            }
+        }
+    }
+    for(let i =0;i<StudentSearchReturn.length;i++){
+        let TempTags = [];
+        for(let u=0;u<StudentSearchReturn[i].ProfileData.education.length;u++) {
+            for (let y = 0; y < StudentSearchReturn[i].ProfileData.education[u].courses.length; y++) {
+                for (let w = 0; w < StudentSearchReturn[i].ProfileData.education[u].courses[y].CourseTags.length; w++) {
+                    if(!TempTags.includes(StudentSearchReturn[i].ProfileData.education[u].courses[y].CourseTags[w])) {
+                        TempTags.push(StudentSearchReturn[i].ProfileData.education[u].courses[y].CourseTags[w]);
+                    }
+                }
+            }
+        }
+        let TempReturn = {
+            udid:StudentSearchReturn[i].uuid,
+            email:StudentSearchReturn[i].AccountData.username,
+            firstname:StudentSearchReturn[i].ProfileData.info.firstname,
+            Tags:TempTags,
+        };
+        StudentSearchReturn[i] = TempReturn
+    }
+    return StudentSearchReturn;
 };

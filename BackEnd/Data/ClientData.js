@@ -1,5 +1,6 @@
 const Auth = require('../Auth/AuthController.js');
-
+const Org = require ('../Data/EmployerData.js');
+const Middleware = require('../Auth/AuthMiddleware.js');
 var fs = require('fs');
 
 var AllData = [];
@@ -38,7 +39,7 @@ exports.GetAccountDataByUserName = (userName) => {
             return AllData[i].AccountData;
         }
     }
-    return {};
+    return -1;
 };
 //With the UserID a call can be made internally to get a user structure
 exports.GetUserByID = (ID) => {
@@ -177,6 +178,9 @@ exports.NewUserV2 = (req, res) => {
     //run checks on user input
     if (CheckUserExistsV2(req.body.email)) {
         return res.status(402).send({result: false, data: 'The Email Already Exists'});
+    }
+    if(req.body.accounttype==="Employer"){
+       return Org.NewOrg(req, res);
     }
     //Create the new user object
     AllData.push({
@@ -443,9 +447,51 @@ exports.POST_Profile_Personal = (bodyPersonal, profilePersonal) => {
     }
 };
 
+//returns list of jobs to user
+exports.SearchJobs_With_Tags = (req, res) =>{
+//Token is Valid
+    let Jobstoreturn = Middleware.SearchForJobWithTag(req.body.tags);
+    if(Jobstoreturn.length === 0){
+        return res.status(402).send({Found:0,error:"No jobs with those tags Found",Tags:req.body.tags});
+    }
+    return res.status(201).send({Found:Jobstoreturn.length,Jobstoreturn});
+};
 
-
-
+//returns list of jobs to user
+exports.SearchStudents_With_Tags = (req, res) =>{
+//Token is Valid
+    var Studentstoreturn = Middleware.SearchForStudentWithTag(req.body.tags);
+    console.log(Studentstoreturn);
+    if(Studentstoreturn.length === 0){
+        return res.status(402).send({Found:0,error:"No jobs with those tags Found",Tags:req.body.tags});
+    }
+    return res.status(201).send({Found:Studentstoreturn.length,Studentstoreturn});
+};
+exports.SearchWithTag = (tag) => {
+    let TempReturn = [];
+    for (let i = 0; i < AllData.length; i++) {
+       // console.log(AllData[i].ProfileData);
+        if(AllData[i].ProfileData.education){
+            for (let j = 0; j < AllData[i].ProfileData.education.length; j++) {
+               // console.log(AllData[i].ProfileData.education[j]);
+                if(AllData[i].ProfileData.education[j].courses) {
+                    for (let y = 0; y < AllData[i].ProfileData.education[j].courses.length; y++) {
+                        //console.log(AllData[i].ProfileData.education[j].courses[y]);
+                        if(AllData[i].ProfileData.education[j].courses[y].CourseTags) {
+                            for (let d = 0; d < AllData[i].ProfileData.education[j].courses[y].CourseTags.length; d++) {
+                                if (AllData[i].ProfileData.education[j].courses[y].CourseTags[d].toLowerCase() === tag.toLowerCase()) {
+                                    TempReturn.push(AllData[i]);
+                                }
+                                console.log(AllData[i].ProfileData.education[j].courses[y].CourseTags[d]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return TempReturn;
+};
 
 
 
