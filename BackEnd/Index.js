@@ -20,6 +20,7 @@ app.listen(port, () => {
     Org.ReadData();
     Schools.ReadData();
 });
+//I also say HI
 app.use(bodyParser.json());
 app.use(cors());
 
