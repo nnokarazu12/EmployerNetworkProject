@@ -190,6 +190,8 @@ exports.NewUserV2 = (req, res) => {
         },
         ProfileData: {info:{firstname:req.body.firstname,lastname:req.body.lastname}}
     });
+
+
     SaveData();
     return res.status(201).send(AllData[AllData.length - 1])
 };

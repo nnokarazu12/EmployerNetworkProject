@@ -54,7 +54,7 @@ function User_login(emailin, passwordin) {
                 setTimeout(function () {
                     location.href = "student_profile.html";
                 }, 100);
-                
+
             } else {
                 console.log("Account was not created successfully");
                 //TODO add response such as error box?
@@ -85,6 +85,24 @@ function Get_Profile(token) {
             } else {
                 console.log("Nothing in Account")
                 //TODO add response such as error box?
+            }
+        });
+}
+function Profile_AddNewCourse (CourseCode) {
+    let Current_token = localStorage.getItem('current_token');
+    if (!Current_token) {
+        return console.log("Error Login First");
+    }
+    postData('http://api.loot.agency:28015/api/v2/data/Profile/Education/courses?token=' + Current_token, {coursecode:CourseCode})
+        .then((data) => {
+            console.log(data);
+            if (data) {
+                console.log("Updated CourseCode to Profile");
+                let TempSchool = localStorage.getItem('School');
+                TempSchool.courses.push(data);
+                localStorage.setItem('School', TempSchool);
+            } else {
+                console.log("Error In Fetch Call")
             }
         });
 }

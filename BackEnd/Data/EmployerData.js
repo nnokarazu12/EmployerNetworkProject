@@ -55,11 +55,21 @@ exports.NewJobListing = (req, res) => {
     let TempObj = GetOrgFromUdid();
     //Set Values From Body
     let TempListing = {
-        jobtitle: req.body.title,
-        joblocation: req.body.location,
-        jobbio: req.body.bio,
-        jobpay: req.body.pay
+        Job_Udid:Auth.GenerateNewUserID(),
+        Job_Title: req.body.title,
+        Job_Description: req.body.description,
+        Job_Location: req.body.location,
+        job_Skills: [],
+        job_pay: req.body.pay,
+        Job_Availability: req.body.availability,
+        Job_Duration: req.body.duration
     };
+    let TempTags = [];
+    //Loop Thorugh Tags and add them to the array from body
+    for (let i = 0; i < req.body.tags.length; i++) {
+        TempTags.push(req.body.tags[i]);
+    }
+    TempListing.job_Skills = TempTags;
     //push the values to the org profile
     TempObj.JobListings.push(TempListing);
     //return with the org profile
