@@ -148,7 +148,27 @@ exports.MasterOverrideAddSchool = (req, res) => {
     School_Array[TempUniversityindex] = req.body.data;
     GetSchoolInfo(req, res, req.body.schooluuid);
 };
-
+exports.MatchCode = (req, res) => {
+    let missing = "";
+    if (!req.body.coursecode) {
+        missing += "CourseCode, ";
+    }
+    if (missing.length > 0) {
+        return res.status(400).send({error: true, data: "Error you are missing " + missing});
+    }
+    let temptourse = GetCourseByCourseCode(req.body.coursecode);
+    //get the profile from the user API Key assuming the token key is valid
+    let profile;
+    if ((req.query && req.query.token)) {
+        profile = Users.GetUserByToken(req.query.token).ProfileData;
+    } else {
+        profile = Users.GetUserByToken(req.body.token).ProfileData;
+    }
+    profile.education.courses= [];
+    let TempUserCources = profile.education.courses;
+    TempUserCources.push(temptourse);
+    return res.status(200).send(temptourse);
+};
 //function returns the school data to caller ending api call
 function GetSchoolInfo(req, res, School_ID) {
     let Schoolindex = GetSchoolByID(School_ID);
@@ -222,6 +242,17 @@ function GetCourseByUUID(School_ID, Course_ID) {
     for (let j = 0; j < School_Array[TempSchooIndex].Courses_offered.length; j++) {
         if (School_Array[TempSchooIndex].Courses_offered[j].CourseID === Course_ID) {
             return j;
+        }
+    }
+    return -1;
+}
+//Gets the course obj by course UUID EZindex
+function GetCourseByCourseCode(Course_Code) {
+    for (let i = 0; i < School_Array.length; i++) {
+        for (let j = 0; j < School_Array[i].Courses_offered.length; j++) {
+            if (School_Array[i].Courses_offered[j].CourseCode === Course_Code) {
+                return School_Array[i].Courses_offered[j];
+            }
         }
     }
     return -1;

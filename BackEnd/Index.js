@@ -11,7 +11,7 @@ const cors = require('cors');
 const app = express();
 const http = require('http');
 const https = require('https');
-const port = 3000;
+const port = 28015;
 
 app.listen(port, () => {
     console.log(`WebAPI app listening on port ${port}!`);
@@ -91,13 +91,7 @@ function MatchCode(codetomatch) {
     return returndata;
 }
 
-app.post('/api/v2/data/Profile/Education/class', [Middleware.ParseValidFields, Middleware.hasAuthToken, Middleware.hasAuthValidToken, function (req, res) {
-    let CCode = req.query.ccode;
-    let courses = Users.GetUserByToken(req.query.token).ProfileData.education;
-    courses = {course: {}};
-    courses.course = MatchCode(CCode);
-    return res.status(200).send(MatchCode(CCode));
-}]);
+app.post('/api/v2/data/Profile/Education/courses', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,Schools.MatchCode]);
 app.get('/api/v2/data/Profile/Work', [Middleware.ParseValidFields, Middleware.hasAuthToken, Middleware.hasAuthValidToken, function (req, res) {
     return res.status(200).send(Users.GetUserByToken(req.query.token).ProfileData.work);
 }]);

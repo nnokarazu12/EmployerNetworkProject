@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link href="index.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
+
+    <script src="libraries/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="libraries/bootstrap.js" type="text/javascript"></script>
+    <script src="libraries/handle_account.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="title-container">
+        <div id="title-icon-container"><img src="images/network.svg" /></div>
+        <p id="title">Employer Network</p>
+        <p id="description" style="width: 300px">Connect with employers and discover many job opportunities.</p>
+
+    </div>
+    <div id="form-container">
+        <div id="form-view">
+            <div id="form-slider">
+                <!--Login Form-->
+                <div class="form" id="login-form">
+                    <div class="form-head"><p>Login</p></div>
+                    <div class="form-body">
+                        <br />
+                        <label for="email">Email</label>
+                        <br /><br />
+                        <input class="input-field" id="email" />
+                        <br /><br />
+                        <label for="password">Password</label>
+                        <br /><br />
+                        <input class="input-field" id="password" type="password"/>
+                        <br /><br />
+                        <input class="form-button" value="Login" type="submit" onclick="User_login(document.getElementById('email').value, document.getElementById('password').value); clearFields()"/>
+                        <br /><br />
+                        <p class="form-pointer" id="signup-pointer" onclick="toggleForm(event)">Sign up here &rarr;</p>
+                    </div>
+                </div>
+                <!--Signup Form-->
+                <div class="form" id="signup-form">
+                    <div class="form-head"><p>Register</p></div>
+                    <div class="form-body">
+                        <br /><br />
+                        <label>Who are you?</label>
+                        <select id="accounttype">
+                            <option value="student">Student</option>
+                            <option value="employer">Employer</option>
+                        </select>
+                        <br /><br />
+                        <label for="sfirstname">Enter first name</label>
+                        <br /><br />
+                        <input class="input-field" id="sfirstname" />
+                        <br /><br />
+                        <label for="slastname">Enter last name</label>
+                        <br /><br />
+                        <input class="input-field" id="slastname" />
+                        <br /><br />
+                        <label for="semail">Email</label>
+                        <br /><br />
+                        <input class="input-field" id="semail" />
+                        <br /><br />
+                        <label for="password">Password</label>
+                        <br /><br />
+                        <input class="input-field" id="spassword" type="password" />
+                        <br /><br /><br />
+                        <input type="submit" value="Sign Up" class="form-button" onclick="User_Signup(document.getElementById('semail').value, document.getElementById('spassword').value); clearFields()" />
+                        <br /><br />
+                        <p class="form-pointer" id="login-pointer" onclick="toggleForm(event)">&larr; Back to login</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>Copyright &copy; 2020</p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
