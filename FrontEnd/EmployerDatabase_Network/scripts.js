@@ -19,12 +19,12 @@ function toggleCourseTab() {
         courseTab.style.display = "none";
     }*/
 }
-function addCourse() {
+function addCourse(coursecode,coursename,coursetags) {
     var courseTab = document.createElement('div');
     var courseCode = document.getElementById('course-code-box');
     var courseName = document.getElementById('course-name-box');
     courseTab.className = "course-tab";
-    courseTab.innerHTML = "(" + courseCode.value + ")" + " " + courseName.value;
+    courseTab.innerHTML = "(" + coursecode + ")" + " " + coursename+"\n ["+ coursetags +"]";
     var gridItem2 = document.getElementById('grid-item-2');
     gridItem2.appendChild(courseTab);
 }

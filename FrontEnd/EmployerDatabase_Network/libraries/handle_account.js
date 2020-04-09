@@ -114,16 +114,13 @@ function Profile_AddNewCourse(CourseCode) {
         return console.log("Error: [Get Request Made with no Login Token] ");
     }
     let CourseSrruct = {coursecode: CourseCode};
-    POSTRequest("localhost:28015/api/v2/data/Profile/Education/courses", CourseSrruct)
+    POSTRequest("api/v2/data/Profile/Education/courses", CourseSrruct)
         .then((data) => {
             if (data) {
                 console.log("Updated CourseCode to Profile");
-                let CurrentUser = JSON.parse(localStorage.getItem('CurrentUser'));
-                CurrentUser.ProfileData.education.Courses.push(data);
-                let TempSchool = localStorage.getItem('School');
-                TempSchool.courses.push(data);
-                localStorage.setItem('School', TempSchool);
-                localStorage.setItem('CurrentUser', JSON.stringify(CurrentUser));
+                console.log(data);
+                addCourse(data.CourseCode,data.CourseName,data.CourseTags);
+                Get_Profile();
             } else {
                 console.log("Error In Fetch Call")
             }
