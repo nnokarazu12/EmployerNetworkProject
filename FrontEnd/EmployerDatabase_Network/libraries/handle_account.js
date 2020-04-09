@@ -202,6 +202,16 @@ function SearchForJobStudent() {
         .then((data) => {
             if (data.Found !== 0) {
                 //Display Jobs to User
+                for(let i =0;i<data.Found;i++){
+                    console.log("THis is Job "+(i+1)+"'s Name"+data.Jobstoreturn[i].Job_Title);
+                    document.getElementById('school-head').textContent = "Job Name";
+                    document.getElementById('school-name').textContent = data.Jobstoreturn[i].Job_Title;
+                    document.getElementById('degree-head').textContent = "Job Location";
+                    document.getElementById('degree-name').textContent = data.Jobstoreturn[i].Job_Location;
+                    document.getElementById('grad-year-head').textContent = "Job Pay";
+                    document.getElementById('grad-year').textContent = data.Jobstoreturn[i].job_pay;
+
+                }
                 console.log(data.Jobstoreturn);
             }
         })
