@@ -164,7 +164,10 @@ exports.MatchCode = (req, res) => {
     } else {
         profile = Users.GetUserByToken(req.body.token).ProfileData;
     }
-    profile.education[profile.education.length-1].courses.push(temptourse);
+    if(!profile.education.courses){
+        profile.education.courses = [];
+    }
+    profile.education.courses.push(temptourse);
     Users.SaveallData();
    // console.log(profile.education[profile.education.length-1].courses[profile.education[profile.education.length-1].courses.length-1]);
     return res.status(200).send(temptourse);
