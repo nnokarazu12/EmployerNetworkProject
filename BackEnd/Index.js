@@ -4,6 +4,7 @@ const Students = require('./Data/StudentData.js');
 const Middleware = require('./Auth/AuthMiddleware.js');
 const Schools = require('./Data/SchoolData.js');
 const ApiHelper = require('./ApiHelper.js');
+const Org = require ('./Data/EmployerData.js');
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -16,6 +17,7 @@ const port = 28015;
 app.listen(port, () => {
     console.log(`WebAPI app listening on port ${port}!`);
     Users.ReadData();
+    Org.ReadData();
     Schools.ReadData();
 });
 app.use(bodyParser.json());
@@ -117,3 +119,8 @@ app.post('/api/v2/data/masteroveride/schools', [Schools.MasterOverrideAddSchool]
 app.get('/api/v2/data/schools', [Schools.GetSchoolInfo]);
 //TODO check for existing
 
+//Make employer calls
+
+app.post('/api/v2/data/Employer/NewJobListing', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,Org.NewJobListing]);
+app.post('/api/v2/data/Student/SearchForJobsWithTags', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,Users.SearchJobs_With_Tags]);
+app.post('/api/v2/data/Employers/SearchForStudentWithTags', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,Users.SearchStudents_With_Tags]);
