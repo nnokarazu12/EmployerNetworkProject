@@ -38,15 +38,19 @@
 
         </div>
         <div class="grid-item" id="grid-item-2">
-            <div class="button" onclick="toggleCourseTab()">Add Courses +</div>
+            <div class="button" onclick="toggleCourseBox()" id="add-course-button">Add Courses +</div>
             <!--<div class="course-tab">Java</div>-->
             <div id="course-data-box">
-                <label for="course-code-box">Course Code</label>
-                <input id="course-code-box"/>
-                <label for="course-name-box">Course Name</label>
-                <input id="course-name-box"/>
-                <div id="add-course-button" onclick="addCourse(); Profile_AddNewCourse(document.getElementById('course-code-box').value)">Add</div>
+                <form id="course-form">
+                    <input class="course-input" id="course-code-box" placeholder="Course Code" disabled/>
+                    <br />
+                    <br />
+                    <input class="course-input" id="course-name-box" placeholder="Course Name" disabled/>
+                    <div class="button" id="add-to-list-btn" onclick="addCourse(); Profile_AddNewCourse(document.getElementById('course-code-box').value)">Add</div>
+                    <div onclick="removeCourseBox()" style="color: var(--main-color); position:relative; top: 15px; cursor: pointer;">X</div>
+                </form>
             </div>
+            <div id="course-list-container"></div>
         </div>
     </div>
     <script>
