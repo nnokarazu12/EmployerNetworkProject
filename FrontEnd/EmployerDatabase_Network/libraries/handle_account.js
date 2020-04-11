@@ -28,7 +28,7 @@ function User_Signup(emailin, passwordin) {
                 User_login(emailin, passwordin);
                 //TODO add response such as next page?
             } else {
-                console.log("Account was not created sucessfully")
+                console.log("Account was not created sucessfully");
                 //TODO add response such as error box?
             }
         });
@@ -50,6 +50,7 @@ function User_login(emailin, passwordin) {
                 Current_Secret = data.oauth2.secret;
                 //TODO add response such as next page?
                 Get_Profile(localStorage.getItem('current_token'));
+                //j
                 setTimeout(function () {
                     location.href = "student_profile.html";
                 }, 100);
@@ -132,6 +133,8 @@ function POST_Profile(school, degree, year) {
                 Get_Profile(Current_token);
 
                 setTimeout(function () {
+                    var accountType = document.getElementByID('accounttype');
+                    accountType.
                     location.href = "student_profile.html";
                 }, 50);
                 /*

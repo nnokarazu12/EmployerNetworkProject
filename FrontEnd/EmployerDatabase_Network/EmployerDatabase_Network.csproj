@@ -84,7 +84,6 @@
     <Content Include="registration_success.html" />
     <Content Include="scripts.js" />
     <Content Include="student_profile.html" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +94,7 @@
     <Content Include="libraries\bootstrap.js.map" />
     <Content Include="libraries\bootstrap.min.js.map" />
     <None Include="packages.config" />
+    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
