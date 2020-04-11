@@ -5,8 +5,9 @@
 }
 
 :root {
-    --main-color: #7B1FA2;
-    --main-color-light: #AB47BC;
+    --main-color: #4527A0;
+    --main-color-light: #512DA8;
+    --main-color-dark: #311B92;
 }
 
 body {
@@ -173,21 +174,6 @@ select {
         font-size: 1rem;
     }
 
-/* Registration_success.html styles*/
-#success-banner {
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    background: #2E7D32;
-}
-
-    #success-banner p {
-        font-family: 'Open Sans', sans-serif;
-        color: white;
-        position: relative;
-        top: 15px;
-    }
-
 .banner {
     width: 100%;
     height: 50px;
@@ -195,24 +181,81 @@ select {
     color: white;
 }
 
-#welcome {
-    color: white;
-    position: relative;
-    width: 200px;
-    top: 15px;
-    left: 25px;
-    display: block;
+#welcome-container {
+    position: absolute;
+    width: 400px;
+    height: 35.92%;
+    top: 0px;
+    left: 0px;
+    background: var(--main-color);
+    padding: 5px;
+    z-index: -1;
+}
+
+    #welcome-container p, #welcome-container span {
+        position: relative;
+        color: white;
+        font-size: 2rem;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    #welcome-container p {
+        top: 150px;
+        left: 10px;
+    }
+
+#welcome-extension {
+    position: absolute;
+    top: 50px;
+    left: 410px;
+    width: 0;
+    height: 0;
+    border-top: 15.7vh solid transparent;
+    border-bottom: 15.7vh solid transparent;
+    border-left: 60px solid var(--main-color);
 }
 
 .sign-off {
     float: right;
-    color: white;
     position: relative;
     left: -75px;
-    top: -5px;
+    top: 10px;
     cursor: pointer;
 }
 
+#academic-info-container {
+    position: relative;
+    top: 85px;
+    left: 40%;
+    width: 800px;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info-box {
+    width: 250px;
+    height: 100px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.info-head {
+    width: 100%;
+    height: 50px;
+    background: var(--main-color-light);
+    color: white;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.info-body {
+    width: 240px;
+    height: 30px;
+    color: var(--main-color);
+    padding: 10px 5px;
+    background: #eee6;
+}
 /* Student Profile styles*/
 .button {
     width: 150px;
@@ -228,84 +271,52 @@ select {
 #grid {
     display: grid;
     height: calc(100vh - 50px);
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
 }
 
-.grid-item:nth-child(2) {
-    background: #eee;
+.grid-item {
+    align-items: center;
 }
 
-.grid-item:nth-child(3) {
-    background: #ddd;
+#grid-item-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#grid-item-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#grid-item-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .grid-item:nth-child(1) {
-    grid-row: 1 / span 2;
-    background: #fff;
+    grid-column: 1 / span 3;
     text-align: center;
+    background: white;
+    z-index: -1;
 }
 
 #profile-photo-container {
     position: relative;
-    top: 50px;
+    top: 0px;
     width: 150px;
     height: 150px;
     background: #eee;
     border: 2px solid white;
-    margin: auto;
     border-bottom: 2px solid var(--main-color-light);
 }
 
-    #profile-photo-container img {
-        width: 100%;
-        height: 100%;
-    }
-
-#student-name-container {
-    width: 200px;
-    margin: auto;
-    text-align: center;
-    position: relative;
-    top: 75px;
-    padding: 10px;
-    border-left: 5px solid var(--main-color);
-    background: #eee8;
-}
-
-    #student-name-container p {
-        color: var(--main-color-light);
-        font-size: 1.2em;
-        display: inline-block;
-    }
-
-#education-header {
-    position: relative;
-    top: 200px;
-    font-size: 1.2em;
-}
-
-#school-head {
-    top: 250px;
-}
-
-#school-name {
-    top: 260px;
-}
-
-#degree-head {
-    top: 300px;
-}
-
-#degree-name {
-    top: 310px;
-}
-
-#grad-year-head {
-    top: 350px;
-}
-
-#grad-year {
-    top: 360px;
+#profile-photo-container img {
+    width: 100%;
+    height: 100%;
 }
 
 #menu {
@@ -316,40 +327,30 @@ select {
     align-content: center;
 }
 
-    #menu div {
-        background: white;
-        height: 200px;
-        text-align: center;
-        transition: all .3s 0s;
-        cursor: pointer;
-        border-bottom: 2px solid var(--main-color);
-    }
-
-        #menu div:hover {
-            transform: scale(1.1);
-        }
-
-        #menu div p {
-            position: relative;
-            top: 75px;
-            font-size: 1.3em;
-            color: var(--main-color-light);
-        }
-
-.prof-header {
-    position: relative;
-    color: var(--main-color);
+#menu div {
+    background: white;
+    height: 200px;
     text-align: center;
-    font-size: 1.2em;
+    transition: all .3s 0s;
+    cursor: pointer;
+    border-bottom: 2px solid var(--main-color);
 }
 
-.prof-content {
+#menu div:hover {
+    transform: scale(1.1);
+}
+
+#menu div p {
     position: relative;
-    width: 250px;
-    background: #eee;
-    border-left: 5px solid var(--main-color);
-    padding: 10px 10px 10px 20px;
-    margin: auto;
+    top: 75px;
+    font-size: 1.3em;
+    color: var(--main-color-light);
+}
+
+#course-options {
+    position: relative;
+    width: 300px;
+    outline: none;
 }
 
 .course-tab {
@@ -362,29 +363,42 @@ select {
     color: white;
 }
 
-#course-data-box {
-    padding: 10px;
+#add-course-button {
+    position: relative;
+    width: 40px;
+    height: 40px;
     background: white;
-    width: 200px;
-    height: 200px;
-    display: block;
+    color: var(--main-color);
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.8em;
+    box-sizing: border-box;
+    padding-top: 3px;
+    transition: all .3s;
 }
 
-    #course-data-box input {
-        height: 35px;
-        border: none;
-        border-bottom: 1px solid var(--main-color);
-        font-size: 1em;
-        background: #eee6;
+    #add-course-button:hover {
+        background: var(--main-color);
+        color: white;
     }
 
-#add-course-button {
-    width: 50px;
-    height: 25px;
-    background: var(--main-color);
+.bubble {
+    width: 100px;
+    height: 100px;
+    background: var(--main-color-dark);
     color: white;
+    border-radius: 50%;
+    cursor: pointer;
     text-align: center;
+    box-sizing: border-box;
+    padding-top: 37px;
+    transition: all .3s;
 }
+
+    .bubble:hover {
+        transform: scale(1.1);
+        background: var(--main-color-light);
+    }
 /*Edit Profile styles*/
 #edit-form-container {
     position: relative;
@@ -430,15 +444,4 @@ select {
 
 #grid-2-container-1 {
     background: var(--main-color-light);
-}
-#update-employer-profile-button {
-    margin: auto;
-    width: 150px;
-    height: 50px;
-    color: white;
-    background: var(--main-color);
-    text-align: center;
-    box-sizing: border-box;
-    padding-top: 12px;
-    cursor: pointer;
 }
