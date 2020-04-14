@@ -4,7 +4,7 @@ CurrentUser = {uuid: "", accounttype: "", AccountData: {}, ProfileData: {}};
 var WebApi_URL = "http://localhost:28015/";
 var User_Token = "";
 var User_Structure = {};
-
+//Hi part 3
 
 //This function is designed to load the information from the backend api and sync it with the local storage
 //Requires Valid API Token

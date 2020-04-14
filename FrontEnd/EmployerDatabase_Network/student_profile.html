@@ -4,83 +4,114 @@
     <meta charset="utf-8" />
     <title>Profile</title>
     <link href="index.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <script src="libraries/handle_account.js"></script>
     <script src="scripts.js"></script>
 </head>
 <body>
-    <div class="banner">
-        <p id="welcome">Welcome, <span id="student-name">Student</span></p>
-        <p class="sign-off" onclick="location.href='index.html'">Log Off</p>
+<div class="banner">
+    <p class="sign-off" onclick="location.href='index.html'">Log Off</p>
+</div>
+<div id="grid">
+    <div class="grid-item">
+        <div id="welcome-container">
+            <p>Welcome, <span id="student-name">Nnaemeka</span></p>
+        </div>
+        <div id="welcome-extension"></div>
+        <!--Academic Info-->
+        <div id="academic-info-container">
+            <div class="info-box">
+                <div class="info-head">School</div>
+                <div class="info-body" id="school-name"></div>
+            </div>
+            <div class="info-box">
+                <div class="info-head">Degree</div>
+                <div class="info-body" id="degree-name"></div>
+            </div>
+            <div class="info-box">
+                <div class="info-head">Year</div>
+                <div class="info-body" id="grad-year"></div>
+            </div>
+        </div>
+        <!--
+        <div class="prof-header" id="education-header"><p>Academic Information</p></div>
+        <div class="prof-content" id="school-name"></div>
+        <div class="prof-content" id="degree-name"></div>
+        <div class="prof-content" id="grad-year"></div>-->
+
     </div>
-    <div id="grid">
-        <div class="grid-item">
-            <div id="profile-photo-container">
-                <img src="images/user.svg"/>
-            </div>
-            <div id="student-name-container"><p id="firstname-text">Firstname</p> <p id="lastname-text">Lastname</p></div>
-            <div class="prof-header" id="education-header"><p>Academic Information</p></div>
-            <div class="prof-header"id="school-head">School</div>
-            <div class="prof-content" id="school-name"></div>
-            <div class="prof-header" id="degree-head">Major</div>
-            <div class="prof-content" id="degree-name"></div>
-            <div class="prof-header" id="grad-year-head">Graduation Year</div>
-            <div class="prof-content" id="grad-year"></div>
-            <!--<div class="info-header"><p>Academic Status</p></div>-->
-            <div class="info-"></div>
-
+    <div class="grid-item" id="grid-item-2">
+        <div id="profile-photo-container">
+            <img src="images/user.svg" />
         </div>
-        <div class="grid-item" id="menu">
-            <div onclick="location.href = 'edit_profile.html'">
-                <p>Update Profile</p>
-            </div>
-            <div onclick="SearchForJobStudent();">
-                <p>Apply for Available Jobs</p>
-            </div>
-
-            <div><p>Other</p></div>
-
+        <div class="info-box">
+            <div class="info-head">Full Name</div>
+            <div class="info-body"><p id="firstname-text" style="display: inline-block"></p> <p id="lastname-text" style="display: inline-block"></p></div>
         </div>
-        <div class="grid-item" id="grid-item-2">
-            <div class="button" onclick="toggleCourseTab()">Add Courses +</div>
-            <!--<div class="course-tab">Java</div>-->
-            <div id="course-data-box">
-                <label for="course-code-box">Course Code</label>
-                <input id="course-code-box"/>
-                <label for="course-name-box">Course Name</label>
-                <input id="course-name-box"/>
-                <div id="add-course-button" onclick=" Profile_AddNewCourse(document.getElementById('course-code-box').value)">Add</div>
-            </div>
+        <div class="info-box">
+            <div class="info-head">Email</div>
+            <div class="info-body">naokarazu@captechu.edu</div>
         </div>
+        <!--
+        <div onclick="location.href = 'edit_profile.html'">
+            <p>Update Profile</p>
+        </div>
+        <div onclick="SearchForJobStudent();">
+            <p>Apply for Available Jobs</p>
+        </div>
+
+        <div><p>Other</p></div>-->
+
     </div>
-    <script>
-        window.addEventListener('load', function () {
-            Get_Profile();
+    <div class="grid-item" id="grid-item-3">
+        <p style="position: relative; top: 25px; color: var(--main-color); font-size: 1.2em;">Courses</p>
+        <!--Course Options List-->
+        <div style="width: 100%; position: relative; top: 50px; display: flex; justify-content: space-evenly; align-items: center;">
+            <select id="course-options">
+                <option value="CS-230">CS-230 Data Structures</option>
+                <option value="CS-230">CS-230 Data Structures</option>
+                <option value="CS-230">CS-230 Data Structures</option>
+                <option value="CS-230">CS-230 Data Structures</option>
+            </select>
+            <div id="add-course-button" onclick=" Profile_AddNewCourse(document.getElementById('course-code-box').value)">+</div>
+        </div>
+        <!--<div class="course-tab">Java</div>-->
+    </div>
+    <div class="grid-item" id="grid-item-4">
+        <div class="bubble">Find jobs</div>
+        <div class="bubble" onclick="location.href = 'edit_profile.html'">Update</div>
+        <div class="bubble">Other</div>
+    </div>
+</div>
+<script>
+    window.addEventListener('load', function () {
+        Get_Profile();
 
-            //pull from local storage
-            let CurrentUser = JSON.parse(localStorage.getItem('CurrentUser'));
+        //pull from local storage
+        let CurrentUser = JSON.parse(localStorage.getItem('CurrentUser'));
 
-            document.getElementById('firstname-text').innerHTML = CurrentUser.ProfileData.info.firstname;
-            document.getElementById('lastname-text').innerHTML = CurrentUser.ProfileData.info.lastname;
-            document.getElementById('student-name').innerHTML = CurrentUser.ProfileData.info.firstname;
+        document.getElementById('firstname-text').innerHTML = CurrentUser.ProfileData.info.firstname;
+        document.getElementById('lastname-text').innerHTML = CurrentUser.ProfileData.info.lastname;
+        document.getElementById('student-name').innerHTML = CurrentUser.ProfileData.info.firstname;
 
-            if (!CurrentUser.ProfileData.education) {
-                document.getElementById('school-name').innerHTML = "Not Specified";
-                document.getElementById('degree-name').innerHTML = "Not Specified";
-                document.getElementById('grad-year').innerHTML = "Not Specified";
-            } else {
-                document.getElementById('school-name').innerHTML = CurrentUser.ProfileData.education.schoolname;
-                document.getElementById('degree-name').innerHTML = CurrentUser.ProfileData.education.degreename;
-                document.getElementById('grad-year').innerHTML = CurrentUser.ProfileData.education.degreeyear;
-            }
-        });
+        if (!CurrentUser.ProfileData.education) {
+            document.getElementById('school-name').innerHTML = "Not Specified";
+            document.getElementById('degree-name').innerHTML = "Not Specified";
+            document.getElementById('grad-year').innerHTML = "Not Specified";
+        } else {
+            document.getElementById('school-name').innerHTML = CurrentUser.ProfileData.education.schoolname;
+            document.getElementById('degree-name').innerHTML = CurrentUser.ProfileData.education.degreename;
+            document.getElementById('grad-year').innerHTML = CurrentUser.ProfileData.education.degreeyear;
+        }
+    });
 
-        function clearFields() {
-            var inputItems = document.querySelectorAll(".input-field");
+    function clearFields() {
+        var inputItems = document.querySelectorAll(".input-field");
         for (var i = 0; i < inputItems.length; i++) {
             inputItems[i].value = "";
         }
-        }
+    }
 
-    </script>
+</script>
 </body>
 </html>
