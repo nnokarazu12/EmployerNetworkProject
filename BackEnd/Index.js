@@ -31,13 +31,14 @@ app.get('/api/v1/Auth/Login', [Middleware.hasAuthValidFields, Auth.Login]);
 //This function will login the User and generate new oath2 token
 app.post('/api/v1/Auth/Login', [Middleware.hasAuthValidFields, Auth.Login]);
 //This call will return the User structure containing all account info
-app.get('/api/v1/data/AccountData', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,]);
+app.get('/api/v1/data/AccountData', [Middleware.hasAuthToken, Middleware.hasAuthValidToken]);
 //This call will return the User structure containing all account info
-app.post('/api/v1/data/AccountData', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,]);
+app.post('/api/v1/data/AccountData', [Middleware.hasAuthToken, Middleware.hasAuthValidToken]);
 //This function Will receive the call to check token
 app.get('/api/v1/Auth/TestToken', [Middleware.hasAuthToken, Middleware.hasAuthValidToken, function (req, res) {
     res.status(200).send({result: true, response: "Token Valid"});
 }]);
+app.get('/api/v2/data/useremail', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,Users.GetUserCurrentEmail]);
 //This function is for updating the users profile with an api key
 app.post('/api/v1/data/ProfileData', [Middleware.hasAuthToken, Middleware.hasAuthValidToken, Users.UpdateUserProfile]);
 //This function Will receive the call to check token and will return the users profile
@@ -79,20 +80,6 @@ app.get('/api/v2/data/Profile/Education', [Middleware.ParseValidFields, Middlewa
     return res.status(200).send(Users.GetUserByToken(req.query.token).ProfileData.education);
 }]);
 
-function MatchCode(codetomatch) {
-    let returndata = {
-        classname: "Agile Methods for Software Eng",
-        code: "CS-452",
-        term: "D01_2020_30"
-    };
-    if (codetomatch !== "CS452") {
-        return {
-            classname: "", code: "", term: ""
-        };
-        return carray.codetomatch
-    }
-    return returndata;
-}
 
 app.post('/api/v2/data/Profile/Education/courses', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,Schools.MatchCode]);
 app.get('/api/v2/data/Profile/Work', [Middleware.ParseValidFields, Middleware.hasAuthToken, Middleware.hasAuthValidToken, function (req, res) {

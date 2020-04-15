@@ -200,6 +200,16 @@ exports.NewUserV2 = (req, res) => {
     return res.status(201).send(AllData[AllData.length - 1])
 };
 
+exports.GetUserCurrentEmail = (req, res) => {
+    let profile;
+    if ((req.query && req.query.token)) {
+        profile = GetUserByToken(req.query.token).AccountData;
+    } else {
+        profile = GetUserByToken(req.body.token).AccountData;
+    }
+    return res.status(201).send({email:profile.username});
+};
+
 //This function updates the users profile
 exports.UpdateUserProfile = (req, res) => {
     //get the profile from the user API Key assuming the token key is valid
@@ -492,14 +502,3 @@ exports.SearchWithTag = (tag) => {
     }
     return TempReturn;
 };
-
-
-
-
-
-
-
-
-
-
-

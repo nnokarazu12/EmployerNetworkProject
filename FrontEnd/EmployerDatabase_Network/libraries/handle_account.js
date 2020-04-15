@@ -4,8 +4,6 @@ CurrentUser = {uuid: "", accounttype: "", AccountData: {}, ProfileData: {}};
 var WebApi_URL = "http://localhost:28015/";
 var User_Token = "";
 var User_Structure = {};
-//Hi part 3
-
 //This function is designed to load the information from the backend api and sync it with the local storage
 //Requires Valid API Token
 function Load_userInfo() {
@@ -106,7 +104,26 @@ function Get_Profile() {
             }
         })
 }
-
+function Get_UserEmail() {
+    User_Token = localStorage.getItem('current_token');
+    if (!User_Token) {
+        return console.log("Error: [Get Request Made with no Login Token] ");
+    }
+    //Send Request to get Email For Token
+    GetRequest("api/v2/data/useremail")
+        .then((data) => {
+            if (data) {
+                //Pull from localstorage first!!
+                let CurrentUser = JSON.parse(localStorage.getItem('CurrentUser'));
+                console.log(CurrentUser);
+                CurrentUser.AccountData.username = data.email;
+                localStorage.setItem('CurrentUser', JSON.stringify(CurrentUser));
+                console.log("Email Fetch Success => Email: " + data.email);
+            } else {
+                console.log("Error: [GET Failed]");
+            }
+        })
+}
 //Add Course
 function Profile_AddNewCourse(CourseCode) {
     User_Token = localStorage.getItem('current_token');
