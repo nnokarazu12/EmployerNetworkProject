@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Edit profile</title>
     <link href="index.css" rel="stylesheet"/>
-    <script src="libraries/handle_account.js"></script>
+    <script src="libraries/WebApi.js"></script>
 </head>
 <body>
     <div class="banner">
@@ -29,26 +29,25 @@
             <br /> <br />
             <input class="input-field" id="cyear" value="" />
             <br /><br /><br />
-            <input type="submit" class="form-button" value="Update" onclick="POST_Profile(document.getElementById('cschool').value,
+            <input type="submit" class="form-button" value="Update" onclick="UpdateProfileData(document.getElementById('cschool').value,
         document.getElementById('cdegree').value, document.getElementById('cyear').value)"/>
         </div>
     </div>
     <script>
         window.addEventListener('load', function () {
-            if (localStorage.getItem('schoolname') === undefined) {
+            //when window Loads Pull Profile Information and see if the user has a profile
+            Get_Profile();
+            //pull from local storage
+            let LoggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+
+            if (!LoggedInUser.ProfileData.education ) {
                 document.getElementById('cschool').value = "Not Specified";
-            } else {
-                document.getElementById('cschool').value = localStorage.getItem('schoolname');
-            }
-            if (localStorage.getItem('degree') === undefined) {
                 document.getElementById('cdegree').value = "Not Specified";
-            } else {
-                document.getElementById('cdegree').value = localStorage.getItem('degree');
-            }
-            if (localStorage.getItem('year') === undefined) {
                 document.getElementById('cyear').value = "Not Specified";
             } else {
-                document.getElementById('cyear').value = localStorage.getItem('year');
+                document.getElementById('cschool').value = LoggedInUser.ProfileData.education.schoolname;
+                document.getElementById('cdegree').value = LoggedInUser.ProfileData.education.degreename;
+                document.getElementById('cyear').value = LoggedInUser.ProfileData.education.degreeyear;
             }
         });
     </script>

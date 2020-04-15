@@ -166,9 +166,16 @@ function UpdateProfileData(school, degree, year,info,work,personal) {
             if (data) {
                 console.log("[POST]=>Updated Profile", data);
                 Get_Profile();
-                setTimeout(function () {
-                    location.href = "student_profile.html";
-                }, 50);
+                let LoggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+                if (!(LoggedInUser.accounttype === "employer")) {
+                    setTimeout(function () {
+                        location.href = "student_profile.html";
+                    }, 100);
+                } else {
+                    setTimeout(function () {
+                        location.href = "employer_profile.html";
+                    }, 100);
+                }
             } else {
                 console.log("[POST]=>Update Profile Failed")
             }
