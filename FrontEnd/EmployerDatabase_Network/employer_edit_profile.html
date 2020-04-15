@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Profile</title>
+    <link href="index.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="banner">Edit Profile</div>
+    <div class="edit-form-container">
+        <div class="edit-form-head">
+            <p>Update Information</p>
+        </div>
+        <div class="edit-form-body">
+            <label class="label" for="ccompany">Update Company Name</label>
+            <br /><br />
+            <input class="input-field" id="ccompany" value="" />
+            <br /><br />
+            <label class="label" for="clocation">Update Location</label>
+            <br /><br />
+            <input class="input-field" id="clocation" value="" />
+            <br /><br />
+            <input type="submit" class="form-button" value="Update" onclick="POST_Employer_Profile(document.getElementById('ccompany').value,
+        document.getElementById('clocation').value)" />
+        </div>
+    </div>
+</body>
+</html>

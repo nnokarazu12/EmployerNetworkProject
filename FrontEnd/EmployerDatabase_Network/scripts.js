@@ -10,21 +10,26 @@
         formSlider.style.left = "0px";
     }
 }
-function toggleCourseTab() {
-    //alert("h");
-    /*var courseTab = document.getElementById('course-tab');
-    if (courseTab.style.display == "none") {
-        courseTab.style.display = "block";
-    } else {
-        courseTab.style.display = "none";
-    }*/
-}
 function addCourse() {
     var courseTab = document.createElement('div');
-    var courseCode = document.getElementById('course-code-box');
-    var courseName = document.getElementById('course-name-box');
+    var courseCode = document.getElementById('course-options').value;
+    //Check for amount of courses
+    const MAX_COURSES = 5;
+    var totalCourses = document.querySelectorAll('.course-tab').length;
+    if (totalCourses >= MAX_COURSES) {
+        return;
+    }
+
     courseTab.className = "course-tab";
-    courseTab.innerHTML = "(" + courseCode.value + ")" + " " + courseName.value;
-    var gridItem2 = document.getElementById('grid-item-2');
-    gridItem2.appendChild(courseTab);
+    //courseTab.innerHTML = "(" + courseCode.value + ")" + " " + courseName.value;
+    courseTab.innerHTML = courseCode;
+    var courseContainer = document.getElementById('course-container');
+    courseContainer.appendChild(courseTab);
+}
+
+function clearFields() {
+    var inputItems = document.querySelectorAll(".input-field");
+    for (var i = 0; i < inputItems.length; i++) {
+        inputItems[i].value = "";
+    }
 }
