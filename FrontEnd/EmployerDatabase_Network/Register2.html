@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="css/Register.css"/>
+	<script src="libraries/WebApi.js"></script>
+</head>
+<body>
+<div id="Register">
+	<div id="CardGroup" class="CardGroup">
+		<svg class="Rectangle_23">
+			<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_23" rx="0" ry="0" x="0" y="0" width="310" height="459">
+			</rect>
+		</svg>
+		<div id="EditGrouping" class="EditGrouping">
+			<form>
+				<input type="text" class="Rectangle_16" id="FirstNameBox" name="FirstnameBox" value="Not Entered"><br>
+			</form>
+			<form>
+				<input type="text" class="Rectangle_17" id="LastNameBox" name="LastNameBox" value="Not Entered"><br>
+			</form>
+			<form>
+				<input type="text" class="Rectangle_18" id="EmailBox" name="EmailBox" value="Not Entered"><br>
+			</form>
+			<form>
+				<input type="text" class="Rectangle_19" id="PasswordBox" name="PasswordBox" value="Not Entered"><br>
+			</form>
+			<div id="First_Name_">
+				<span>First Name:</span>
+			</div>
+			<div id="Last_Name_">
+				<span>Last Name:</span>
+			</div>
+			<div id="Email_Address_">
+				<span>Email Address:</span>
+			</div>
+			<div id="Password_">
+				<span>Password:</span>
+			</div>
+			<input class="Submit" value="Register" type="submit" onclick="CreateAccount(document.getElementById('EmailBox').value,
+                         document.getElementById('PasswordBox').value,
+                         document.getElementById('FirstNameBox').value,document.getElementById('LastNameBox').value);"/>
+		</div>
+	</div>
+	<div id="Logophoto" class="Logophoto">
+		<img id="NoPath___Copy__14_" src="images/NoPath___Copy__14_.png" srcset="images/NoPath___Copy__14_.png 1x, images/NoPath___Copy__14_@2x.png 2x">
+	</div>
+</div>
+</body>
+</html>

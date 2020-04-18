@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EditProfile</title>
+	<script src="libraries/WebApi.js"></script>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="css/EditProfile.css"/>
+
+</head>
+<body>
+<div id="Edit_Profile">
+	<div id="Banner" class="Banner">
+		<svg class="BannerFrame">
+			<rect fill="rgba(243,243,243,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="BannerFrame" rx="0" ry="0" x="0" y="0" width="100%" height="79">
+			</rect>
+		</svg>
+		<img id="Logo" src="images/Logo.png" srcset="images/Logo.png 1x, images/@2x.png 2x">
+		<svg class="pfptop">
+			<img src="images/user.svg" id="pfptop" />
+		</svg>
+		<div id="search" class="search">
+			<svg class="Searchtextframe">
+				<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Searchtextframe" rx="0" ry="0" x="0" y="0" width="592" height="50">
+				</rect>
+			</svg>
+			<svg class="SearchMinafineglass" viewBox="0 0 28.611 28.616">
+				<path fill="rgba(151,151,151,1)" id="SearchMinafineglass" d="M 28.2222785949707 24.74059867858887 L 22.65047454833984 19.16879463195801 C 22.39898681640625 18.91730880737305 22.05808448791504 18.77759552001953 21.70041656494141 18.77759552001953 L 20.78948020935059 18.77759552001953 C 22.3319263458252 16.80483055114746 23.24845123291016 14.32350444793701 23.24845123291016 11.62422561645508 C 23.24845123291016 5.202958583831787 18.04549026489258 0 11.62422561645508 0 C 5.202958106994629 0 0 5.202958583831787 0 11.62422561645508 C 0 18.04549026489258 5.202958583831787 23.24845123291016 11.62422561645508 23.24845123291016 C 14.32350444793701 23.24845123291016 16.80483055114746 22.3319263458252 18.77759552001953 20.78948020935059 L 18.77759552001953 21.70041656494141 C 18.77759552001953 22.05808448791504 18.91730880737305 22.39898681640625 19.16879463195801 22.65047454833984 L 24.74059867858887 28.2222785949707 C 25.26592445373535 28.74760437011719 26.11538696289063 28.74760437011719 26.63512420654297 28.2222785949707 L 28.21669006347656 26.64071273803711 C 28.74201583862305 26.11538696289063 28.74201583862305 25.26592254638672 28.2222785949707 24.74059867858887 Z M 11.62422561645508 18.77759552001953 C 7.67310619354248 18.77759552001953 4.470855712890625 15.5809326171875 4.470855712890625 11.62422561645508 C 4.470855712890625 7.67310619354248 7.667518138885498 4.470855712890625 11.62422561645508 4.470855712890625 C 15.57534503936768 4.470855712890625 18.77759552001953 7.667518138885498 18.77759552001953 11.62422561645508 C 18.77759552001953 15.57534503936768 15.5809326171875 18.77759552001953 11.62422561645508 18.77759552001953 Z">
+				</path>
+			</svg>
+			<div id="Search_For_jobs">
+				<span>Search For jobs</span>
+			</div>
+		</div>
+		<div id="Component_23___1" class="Component_23___1">
+			<svg class="SearchFrame">
+				<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="SearchFrame" rx="0" ry="0" x="0" y="0" width="45" height="44">
+				</rect>
+			</svg>
+			<svg class="Search_w" viewBox="0 0 44.317 43.002">
+				<path fill="rgba(0,0,0,1)" id="Search_w" d="M 26.31472587585449 16.12408256530762 L 26.31472587585449 18.81143188476563 C 26.31472587585449 19.36569595336914 25.8472957611084 19.81918716430664 25.27598762512207 19.81918716430664 L 20.42853927612305 19.81918716430664 L 20.42853927612305 24.52204322814941 C 20.42853927612305 25.07630920410156 19.96110534667969 25.52979850769043 19.38979911804199 25.52979850769043 L 16.61982727050781 25.52979850769043 C 16.04852104187012 25.52979850769043 15.58108901977539 25.07630920410156 15.58108901977539 24.52204322814941 L 15.58108901977539 19.81918716430664 L 10.73363971710205 19.81918716430664 C 10.16233253479004 19.81918716430664 9.694899559020996 19.36569595336914 9.694899559020996 18.81143188476563 L 9.694899559020996 16.12408256530762 C 9.694899559020996 15.5698184967041 10.16233253479004 15.11632919311523 10.73363971710205 15.11632919311523 L 15.58108901977539 15.11632919311523 L 15.58108901977539 10.41347122192383 C 15.58108901977539 9.85920524597168 16.04852104187012 9.405715942382813 16.61982727050781 9.405715942382813 L 19.38979911804199 9.405715942382813 C 19.96110534667969 9.405715942382813 20.42853927612305 9.85920524597168 20.42853927612305 10.41347122192383 L 20.42853927612305 15.11632919311523 L 25.27598762512207 15.11632919311523 C 25.8472957611084 15.11632919311523 26.31472587585449 15.5698184967041 26.31472587585449 16.12408256530762 Z M 43.7136116027832 40.03307723999023 L 41.263916015625 42.40969848632813 C 40.45023345947266 43.19911193847656 39.13450241088867 43.19911193847656 38.32947540283203 42.40969848632813 L 29.69063186645508 34.03693389892578 C 29.30110359191895 33.65902709960938 29.0846996307373 33.14674758911133 29.0846996307373 32.60927963256836 L 29.0846996307373 31.24041366577148 C 26.02907562255859 33.55824661254883 22.18573951721191 34.93551635742188 18.00481414794922 34.93551635742188 C 8.05888557434082 34.93551635742188 4.098141346275952e-07 27.11701583862305 4.098141346275952e-07 17.46775817871094 C 4.098141346275952e-07 7.818500518798828 8.05888557434082 0 18.00481414794922 0 C 27.95074272155762 0 36.00962829589844 7.818500995635986 36.00962829589844 17.46775817871094 C 36.00962829589844 21.52397155761719 34.59001541137695 25.2526683807373 32.2009162902832 28.21714782714844 L 33.61186981201172 28.21714782714844 C 34.16586303710938 28.21714782714844 34.69389343261719 28.42709732055664 35.08341979980469 28.80500411987305 L 43.7136116027832 37.17777252197266 C 44.51863479614258 37.96718215942383 44.51863479614258 39.24367141723633 43.7136116027832 40.03307723999023 Z M 29.77719116210938 17.46775817871094 C 29.77719116210938 11.15249156951904 24.51424789428711 6.046531200408936 18.00481414794922 6.046531200408936 C 11.49538135528564 6.046531200408936 6.232435703277588 11.15249156951904 6.232435703277588 17.46775817871094 C 6.232435703277588 23.78302574157715 11.49538135528564 28.88898277282715 18.00481414794922 28.88898277282715 C 24.51424789428711 28.88898277282715 29.77719116210938 23.78302574157715 29.77719116210938 17.46775817871094 Z">
+				</path>
+			</svg>
+		</div>
+	</div>
+	<div id="CardGroup" class="CardGroup">
+		<svg class="Rectangle_23">
+			<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_23" rx="0" ry="0" x="0" y="0" width="310" height="797">
+			</rect>
+		</svg>
+		<div id="EditGrouping" class="EditGrouping">
+			<form>
+				<input type="text" class="Rectangle_16" id="FirstNameBox" name="FirstnameBox" value="Not Entered"><br>
+			</form>
+			<form>
+				<input type="text" class="Rectangle_17" id="LastNameBox" name="LastNameBox" value="Not Entered"><br>
+			</form>
+			<form>
+				<input type="text" class="Rectangle_18" id="EmailBox" name="EmailBox" value="Not Entered"><br>
+			</form>
+			<form>
+				<input type="text" class="Rectangle_19" id="PhoneBox" name="PhoneBox" value="Not Entered"><br>
+			</form>
+			<div id="First_Name_">
+				<span>First Name:</span>
+			</div>
+			<div id="Last_Name_">
+				<span>Last Name:</span>
+			</div>
+			<div id="Email_Address_">
+				<span>Email Address:</span>
+			</div>
+			<div id="Phone_Number_">
+				<span>Phone Number:</span>
+			</div>
+			<form>
+			<input type="text" class="Rectangle_24" id="BioBox" name="BioBox" value="Not Entered"><br>
+			</form>
+			<div id="User_Bio_">
+				<span>User Bio:</span>
+			</div>
+			<div id="Profile_Picture_URL_">
+				<span>Profile Picture URL:</span>
+			</div>
+			<form>
+				<input type="text" class="Rectangle_25" id="PfpMain" name="PfpMain" value="Not Entered"><br>
+			</form>
+			<div id="Personal_Resume_URL">
+				<span>Personal Resume URL</span>
+			</div>
+			<form>
+				<input type="file" class="Rectangle_26" id="PSRURL" name="PSRURL" value="Not Entered"><br>
+			</form>
+			<input class="Back" value="Back" type="submit" onclick="location.href = 'ProfilePage.html'"/>
+			<input class="Submit" value="Update" type="submit" onclick="UpdateProfile()"/>
+
+		</div>
+	</div>
+</div>
+<script>
+	window.addEventListener('load', function () {
+		//pull from local storage
+		let LoggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+
+		document.getElementById('FirstNameBox').value = LoggedInUser.ProfileData.info.firstname;
+		document.getElementById('LastNameBox').value = LoggedInUser.ProfileData.info.lastname;
+		document.getElementById('EmailBox').value = LoggedInUser.AccountData.username;
+		if (!LoggedInUser.ProfileData.info.phonenumber) {
+			document.getElementById('PhoneBox').value = "Not Specified";
+		} else {
+			document.getElementById('PhoneBox').value = LoggedInUser.ProfileData.info.phonenumber ;
+		}
+		if(LoggedInUser.ProfileData.personal){
+			if(LoggedInUser.ProfileData.personal.pfp){
+				document.getElementById('pfptop').src = LoggedInUser.ProfileData.personal.pfp;
+				document.getElementById('PfpMain').value = LoggedInUser.ProfileData.personal.pfp
+			}else{
+				document.getElementById('PfpMain').value = "Not Specified";
+			}
+			if(LoggedInUser.ProfileData.personal.bio){
+				document.getElementById('BioBox').value = LoggedInUser.ProfileData.personal.bio;
+			}else{
+				document.getElementById('BioBox').value = "Not Specified";
+			}
+		}else{
+			document.getElementById('PfpMain').value = "Not Specified";
+			document.getElementById('BioBox').value = "Not Specified";
+		}
+
+
+	});
+	function UpdateProfile() {
+	var info = {info:{firstname:document.getElementById('FirstNameBox').value,lastname:document.getElementById('LastNameBox').value,phonenumber:document.getElementById('PhoneBox').value}};
+	var personal = {bio:document.getElementById('BioBox').value,pfp:document.getElementById('PfpMain').value};
+	var work = {employername:"Capitol",jobtitle:"Student",timeworked:"3Y"};
+	UpdateProfileData("Capitol","CS","2021",info,work,personal);
+	}
+</script>
+</body>
+</html>

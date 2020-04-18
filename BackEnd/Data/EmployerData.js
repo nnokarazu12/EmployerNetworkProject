@@ -175,6 +175,7 @@ exports.GetUserByToken = (USER_TOKEN) => {
     }
     return {};
 };
+
 exports.SearchWithTag = (tag) => {
     let TempReturn = [];
     for (let i = 0; i < EmployerData.length; i++) {

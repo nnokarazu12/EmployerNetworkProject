@@ -106,17 +106,17 @@ exports.ParseValidFields = (req, res, next) => {
 exports.SearchForJobWithTag = (Tags) => {
     var JobSearchReturn = [];
     var r = 0;
-    for(let i = 0;i<Tags.length;i++){
+    for (let i = 0; i < Tags.length; i++) {
         let Temp = Org.SearchWithTag(Tags[i]);
-        if(Temp !== []){
-            for(let k = 0;k<Temp.length;k++) {
-                r=0;
-                for(let l=0;l<JobSearchReturn.length;l++){
-                    if(JobSearchReturn[l].Job_Udid === Temp[k].Job_Udid){
-                        r=1;
+        if (Temp !== []) {
+            for (let k = 0; k < Temp.length; k++) {
+                r = 0;
+                for (let l = 0; l < JobSearchReturn.length; l++) {
+                    if (JobSearchReturn[l].Job_Udid === Temp[k].Job_Udid) {
+                        r = 1;
                     }
                 }
-                if(r===0){
+                if (r === 0) {
                     JobSearchReturn.push(Temp[k]);
                 }
             }
@@ -124,6 +124,7 @@ exports.SearchForJobWithTag = (Tags) => {
     }
     return JobSearchReturn;
 };
+
 exports.SearchForStudentWithTag = (Tags) => {
     var StudentSearchReturn = [];
     let r = 0;
@@ -145,14 +146,13 @@ exports.SearchForStudentWithTag = (Tags) => {
     }
     for(let i =0;i<StudentSearchReturn.length;i++){
         let TempTags = [];
-        for(let u=0;u<StudentSearchReturn[i].ProfileData.education.length;u++) {
-            for (let y = 0; y < StudentSearchReturn[i].ProfileData.education[u].courses.length; y++) {
-                for (let w = 0; w < StudentSearchReturn[i].ProfileData.education[u].courses[y].CourseTags.length; w++) {
-                    if(!TempTags.includes(StudentSearchReturn[i].ProfileData.education[u].courses[y].CourseTags[w])) {
-                        TempTags.push(StudentSearchReturn[i].ProfileData.education[u].courses[y].CourseTags[w]);
+            for (let y = 0; y < StudentSearchReturn[i].ProfileData.education.courses.length; y++) {
+                for (let w = 0; w < StudentSearchReturn[i].ProfileData.education.courses[y].CourseTags.length; w++) {
+                    if(!TempTags.includes(StudentSearchReturn[i].ProfileData.education.courses[y].CourseTags[w])) {
+                        TempTags.push(StudentSearchReturn[i].ProfileData.education.courses[y].CourseTags[w]);
                     }
                 }
-            }
+
         }
         let TempReturn = {
             udid:StudentSearchReturn[i].uuid,

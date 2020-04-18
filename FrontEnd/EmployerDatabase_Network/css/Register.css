@@ -1,0 +1,208 @@
+.mediaViewInfo {
+	--web-view-name: Register;
+	--web-view-id: Register;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Register;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Register {
+	position: absolute;
+	width: 1920px;
+	height: 1080px;
+	background-color: rgba(17,38,68,1);
+	overflow: hidden;
+	--web-view-name: Register;
+	--web-view-id: Register;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+#CardGroup {
+	position: absolute;
+	width: 310px;
+	height: 459px;
+	left: 805px;
+	top: 281px;
+	overflow: visible;
+}
+.Rectangle_23 {
+	position: absolute;
+	overflow: visible;
+	width: 310px;
+	height: 459px;
+	left: 0px;
+	top: 0px;
+}
+#EditGrouping {
+	position: absolute;
+	width: 237px;
+	height: 379px;
+	left: 37px;
+	top: 27px;
+	overflow: visible;
+}
+.Rectangle_16 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 31px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+.Rectangle_17 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 113px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+.Rectangle_18 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 196px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+.Rectangle_19 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 279px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+#First_Name_ {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Last_Name_ {
+	position: absolute;
+	left: 0px;
+	top: 82px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Email_Address_ {
+	position: absolute;
+	left: 0px;
+	top: 164px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Password_ {
+	position: absolute;
+	left: 0px;
+	top: 247px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+.Submit {
+	position: absolute;
+	overflow: visible;
+	width: 147px;
+	height: 43px;
+	left: 45px;
+	top: 336px;
+	background-color: #07b4ff;
+	color: rgb(255, 255, 255);
+}
+#Logophoto {
+	position: absolute;
+	width: 300px;
+	height: 176px;
+	left: 810px;
+	top: 45px;
+	overflow: visible;
+}
+#NoPath___Copy__14_ {
+	position: absolute;
+	width: 300px;
+	height: 176px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}

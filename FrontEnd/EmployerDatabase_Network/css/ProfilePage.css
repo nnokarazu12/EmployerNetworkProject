@@ -1,0 +1,806 @@
+.mediaViewInfo {
+	--web-view-name: ProfilePage;
+	--web-view-id: ProfilePage;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: ProfilePage;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#ProfilePage {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(191,191,191,1);
+	overflow: hidden;
+	--web-view-name: ProfilePage;
+	--web-view-id: ProfilePage;
+	--web-enable-deep-linking: true;
+}
+#CardTop {
+	position: absolute;
+	width: 100%;
+	height: 257px;
+	left: 0px;
+	top: 79px;
+	overflow: visible;
+}
+.Top_Frame_m {
+	position: absolute;
+	overflow: visible;
+	width: 100%;
+	height: 257px;
+	left: 0px;
+	top: 0px;
+}
+#PfpMain {
+	position: absolute;
+	overflow: visible;
+	width: 135px;
+	height: 135px;
+	left: 152px;
+	top: 34px;
+	border-radius: 300px;
+}
+#William_Wright {
+	position: absolute;
+	left: 320px;
+	top: 38px;
+	overflow: visible;
+	width: 388px;
+	height: 57px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 37px;
+	color: rgba(180,180,180,1);
+}
+.Rectangle_8 {
+	position: absolute;
+	overflow: visible;
+	width: 527px;
+	height: 120px;
+	left: 320px;
+	top: 101px;
+}
+#This_Is_the_User_Bio_Section__ {
+	position: absolute;
+	left: 320px;
+	top: 101px;
+	overflow: visible;
+	width: 528px;
+	height: 120px;
+	line-height: 30px;
+	margin-top: -4px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 22px;
+	color: rgba(151,151,151,1);
+}
+#Banner {
+	position: absolute;
+	width: 100%;
+	height: 79px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.pfptop {
+	position: absolute;
+	overflow: visible;
+	width: 63px;
+	height: 63px;
+	left: 1806px;
+	top: 8px;
+}
+.BannerFrame {
+	position: absolute;
+	overflow: visible;
+	width: 100%;
+	height: 79px;
+	left: 0px;
+	top: 0px;
+}
+#Logo {
+	position: absolute;
+	width: 232px;
+	height: 35.705px;
+	left: 49px;
+	top: 22px;
+	overflow: visible;
+}
+.pfp {
+	position: absolute;
+	overflow: visible;
+	width: 63px;
+	height: 63px;
+	left: 1806px;
+	top: 8px;
+}
+#pfptop {
+	position: absolute;
+	overflow: visible;
+	width: 63px;
+	height: 63px;
+	left: 1806px;
+	top: 8px;
+	border-color: #908b91;
+	border-style: solid;
+	border-radius: 300px;
+}
+#search {
+	position: absolute;
+	width: 592px;
+	height: 50px;
+	left: 490px;
+	top: 15px;
+	overflow: visible;
+}
+.Searchtextframe {
+	position: absolute;
+	overflow: visible;
+	width: 592px;
+	height: 50px;
+	left: 0px;
+	top: 0px;
+}
+.SearchMinafineglass {
+	overflow: visible;
+	position: absolute;
+	width: 28.611px;
+	height: 28.616px;
+	left: 10.386px;
+	top: 10.387px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Search_For_jobs {
+	position: absolute;
+	left: 57.5px;
+	top: 10px;
+	overflow: visible;
+	width: 141px;
+	white-space: nowrap;
+	line-height: 30px;
+	margin-top: -3.5px;
+	text-align: center;
+	font-family: Calibri;
+	font-style: normal;
+	font-weight: lighter;
+	font-size: 23px;
+	color: rgba(151,151,151,1);
+}
+#course-options {
+	position: relative;
+	outline: midnightblue;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #b5b5b5;
+}
+#add-course-button {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	background: white;
+	text-align: center;
+	cursor: pointer;
+	font-size: 1.8em;
+	box-sizing: border-box;
+	padding-top: 3px;
+	transition: all .3s;
+	border-radius: 5px;
+	margin-left: 10px;
+}
+#add-course-button2 {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	background: white;
+	text-align: center;
+	cursor: pointer;
+	font-size: 1.8em;
+	box-sizing: border-box;
+	padding-top: 3px;
+	transition: all .3s;
+	border-radius: 5px;
+	margin-left: 10px;
+}
+#course-options2 {
+	position: relative;
+	outline: midnightblue;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #b5b5b5;
+}
+#add-course-button:hover {
+	background: var(--main-color);
+	color: white;
+}
+#Component_23___1 {
+	position: absolute;
+	width: 45px;
+	height: 44px;
+	left: 1105px;
+	top: 18px;
+	overflow: visible;
+}
+.SearchFrame {
+	position: absolute;
+	overflow: visible;
+	width: 45px;
+	height: 44px;
+	left: 0px;
+	top: 0px;
+}
+.Search_ {
+	overflow: visible;
+	position: absolute;
+	width: 44.317px;
+	height: 43.002px;
+	left: 0.3px;
+	top: 0.998px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#MainBox {
+	position: absolute;
+	width: 1552px;
+	height: 530px;
+	left: 50%;
+	top: 357px;
+	overflow: visible;
+	transform: translate(-50%, 0)
+}
+#About_Me_Box {
+	position: absolute;
+	width: 329px;
+	height: 530px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+
+}
+.Rectangle_9 {
+	filter: drop-shadow(12px 12px 3px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 345.5px;
+	height: 546.5px;
+	left: 0px;
+	top: 0px;
+}
+#About_Me {
+	position: absolute;
+	left: 101px;
+	top: 9px;
+	overflow: visible;
+	width: 129px;
+	white-space: nowrap;
+	line-height: 30px;
+	margin-top: -1px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28px;
+	color: rgba(100,100,100,1);
+}
+.Rectangle_14 {
+	position: absolute;
+	overflow: visible;
+	width: 160px;
+	height: 51px;
+	left: 85px;
+	top: 445px;
+	background-color: #07b4ff;
+	color: rgb(246, 244, 255);
+	border-radius: 10px;
+}
+.Rectangle_16 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 46px;
+	top: 116px;
+
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+
+}
+.Rectangle_17 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 46px;
+	top: 199px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+.Rectangle_18 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 46px;
+	top: 283px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+.Rectangle_19 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 46px;
+	top: 366px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+#First_Name_ {
+	position: absolute;
+	left: 46px;
+	top: 85px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Last_Name_ {
+	position: absolute;
+	left: 46px;
+	top: 168px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Email_Address_ {
+	position: absolute;
+	left: 46px;
+	top: 251px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Phone_Number_ {
+	position: absolute;
+	left: 46px;
+	top: 334px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Card_uniSelection {
+	position: absolute;
+	width: 491px;
+	height: 149px;
+	left: 350px;
+	top: 0px;
+	overflow: visible;
+}
+.Rectangle_10 {
+	filter: drop-shadow(12px 12px 6px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 512px;
+	height: 170px;
+	left: 0px;
+	top: 0px;
+}
+#University {
+	position: absolute;
+	left: 179px;
+	top: 8px;
+	overflow: visible;
+	width: 136px;
+	white-space: nowrap;
+	line-height: 30px;
+	margin-top: -1px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28px;
+	color: rgba(100,100,100,1);
+}
+.Rectangle_20 {
+	position: absolute;
+	overflow: visible;
+	width: 393px;
+	height: 34px;
+	left: 49px;
+	top: 60px;
+}
+.Rectangle_21 {
+	position: absolute;
+	overflow: visible;
+	width: 109px;
+	height: 35px;
+	left: 188px;
+	top: 107px;
+	background-color: #07b4ff;
+	color: rgb(255, 255, 255);
+}
+#Card_CourseSelection {
+	position: absolute;
+	width: 491px;
+	height: 366px;
+	left: 350px;
+	top: 164px;
+	overflow: visible;
+}
+.Outer_Box {
+	filter: drop-shadow(12px 12px 6px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 512px;
+	height: 387px;
+	left: 0px;
+	top: 0px;
+}
+#Course_Selection {
+	position: absolute;
+	left: 136px;
+	top: 12px;
+	overflow: visible;
+	width: 221px;
+	white-space: nowrap;
+	line-height: 30px;
+	margin-top: -1px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28px;
+	color: rgba(100,100,100,1);
+
+}
+#CourseSelectionbox {
+	position: absolute;
+	width: 466px;
+	height: 285px;
+	left: 11px;
+	top: 67px;
+	overflow: hidden;
+}
+.Rectangle_22 {
+	position: absolute;
+	overflow: hidden;
+	width: 466px;
+	height: 285px;
+	left: 0px;
+	top: 0px;
+}
+#Course_Box {
+	position: relative;
+	width: 194px;
+	height: 44px;
+	left: 20px;
+	margin-top: 12px;
+}
+.Course_SelectionBox {
+	filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 212px;
+	height: 62px;
+	left: 0px;
+	top: 0px;
+}
+#Course_Name {
+	position: absolute;
+	width: 153px;
+	height: 15px;
+	left: 4px;
+	top: 3px;
+	overflow: visible;
+}
+#Android_App_Developement {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 154px;
+	height: 15px;
+	line-height: 30px;
+	margin-top: -9.5px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 11px;
+	color: rgba(100,100,100,1);
+}
+#Course_Code {
+	position: absolute;
+	width: 73px;
+	height: 10px;
+	left: 4px;
+	top: 18px;
+	overflow: visible;
+}
+#CS_316 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 74px;
+	height: 10px;
+	line-height: 30px;
+	margin-top: -11.5px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 7px;
+	color: rgba(152,152,152,1);
+}
+#Uni_Name {
+	position: absolute;
+	width: 112px;
+	height: 11px;
+	left: 4px;
+	top: 28px;
+	overflow: visible;
+}
+#Capitol_Technology {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 113px;
+	height: 11px;
+	line-height: 30px;
+	margin-top: -11.5px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 7px;
+	color: rgba(152,152,152,1);
+}
+#UniPFP_Group {
+	position: absolute;
+	width: 35px;
+	height: 36px;
+	left: 157px;
+	top: 5px;
+	overflow: visible;
+}
+.Univeristy_pfp_Box {
+	position: absolute;
+	overflow: visible;
+	width: 35px;
+	height: 36px;
+	left: 0px;
+	top: 0px;
+}
+#Capitol_pfp_Temp {
+	position: absolute;
+	width: 31px;
+	height: 31px;
+	left: 2px;
+	top: 3px;
+	overflow: visible;
+}
+#Card_JobForMe {
+	position: absolute;
+	width: 690px;
+	height: 530px;
+	left: 862px;
+	top: 0px;
+	overflow: visible;
+}
+.JobFramw {
+	filter: drop-shadow(12px 12px 6px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 711px;
+	height: 551px;
+	left: 0px;
+	top: 0px;
+}
+.Job_Box_Frame {
+	position: absolute;
+	overflow: visible;
+	width: 649px;
+	height: 445px;
+	left: 20px;
+	top: 67px;
+}
+#Jobs_For_Me {
+	position: absolute;
+	left: 251px;
+	top: 4px;
+	overflow: visible;
+	width: 190px;
+	white-space: nowrap;
+	line-height: 34px;
+	margin-top: -1px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 32px;
+	color: rgba(100,100,100,1);
+}
+#Job_Box1 {
+	position: relative;
+	width: 281px;
+	height: 87px;
+	left: 54px;
+	top: 84px;
+	margin-top: 10px;
+	overflow: visible;
+}
+.Course_SelectionBox_b {
+	filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 299px;
+	height: 105px;
+	left: 0px;
+	top: 0px;
+}
+#Job_Title {
+	position: absolute;
+	width: 153px;
+	height: 15px;
+	left: 4px;
+	top: 3px;
+	overflow: visible;
+}
+#Job_Title_b {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 154px;
+	height: 15px;
+	line-height: 30px;
+	margin-top: -9.5px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 11px;
+	color: rgba(100,100,100,1);
+}
+#Job_Description {
+	position: absolute;
+	width: 137px;
+	height: 51px;
+	left: 4px;
+	top: 18px;
+	overflow: visible;
+}
+#Job_Description_b {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 138px;
+	height: 51px;
+	line-height: 30px;
+	margin-top: -11.5px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 7px;
+	color: rgba(152,152,152,1);
+}
+#Uni_Name_ca {
+	position: absolute;
+	width: 112px;
+	height: 11px;
+	left: 4px;
+	top: 71px;
+	overflow: visible;
+}
+#Job_Location {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 113px;
+	height: 11px;
+	line-height: 30px;
+	margin-top: -11.5px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 7px;
+	color: rgba(152,152,152,1);
+}
+#UniPFP_Group_cc {
+	position: absolute;
+	width: 80px;
+	height: 79px;
+	left: 196px;
+	top: 4px;
+	overflow: visible;
+}
+.Univeristy_pfp_Box_cd {
+	position: absolute;
+	overflow: visible;
+	width: 76px;
+	height: 79px;
+	left: 2px;
+	top: 0px;
+}
+#Capitol_pfp_Temp_ce {
+	position: absolute;
+	width: 80px;
+	height: 79px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}

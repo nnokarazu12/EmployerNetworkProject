@@ -18,7 +18,7 @@
             <p>Welcome, <span id="student-name">Default</span></p>
             <br><br>
             <div id="profile-photo-container">
-                <img src="images/user.svg" />
+                <img src="images/user.svg" id="profile-photo" />
             </div>
         </div>
         <div id="welcome-extension"></div>
@@ -117,6 +117,7 @@
         }else{
             document.getElementById('WorkCurrentText').innerHTML = LoggedInUser.ProfileData.work.jobtitle;
         }
+        document.getElementById('profile-photo').src = LoggedInUser.ProfileData.personal.pfp;
     });
 
     function clearFields() {

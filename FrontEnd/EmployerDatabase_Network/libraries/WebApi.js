@@ -23,12 +23,12 @@ const WebAPI_Endpoints = {
 //--------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------
-function CreateAccount(User_NewEmail, User_NewPassword,User_Accounttype,User_firstname,User_Lastname) {
+function CreateAccount(User_NewEmail, User_NewPassword,User_firstname,User_Lastname) {
     //Pull information from the webpage
     let JSON_Structure = {
         email: User_NewEmail,
         password: User_NewPassword,
-        accounttype:User_Accounttype,
+        accounttype:"Student",
         firstname:User_firstname,
         lastname:User_Lastname
     };
@@ -67,7 +67,7 @@ function User_login(User_NewEmail, User_NewPassword) {
                 localStorage.setItem('LoggedInUser', JSON.stringify(LoggedInUser));
                 if (!(LoggedInUser.accounttype === "employer")) {
                     setTimeout(function () {
-                        location.href = "student_profile.html";
+                        location.href = "ProfilePage.html";
                     }, 100);
                 } else {
                     setTimeout(function () {
@@ -86,7 +86,7 @@ function User_login(User_NewEmail, User_NewPassword) {
         })
 }
 //--------------------------------------------------------------------------------------------
-function Get_Profile() {
+function Get_Profile(Callback) {
     let User_Token = localStorage.getItem('current_token');
     if (!User_Token) {
         return console.log("Error: [Get Request Made with no Login Token] ");
@@ -101,6 +101,9 @@ function Get_Profile() {
                 LoggedInUser.ProfileData = data;
                 localStorage.setItem('LoggedInUser', JSON.stringify(LoggedInUser));
                 console.log("Profile Fetch Success => ProfileData: " + data);
+                if(Callback){
+                    return Callback();
+                }
             } else {
                 console.log("Error: [GET Failed]");
             }
@@ -112,14 +115,16 @@ function AddNewCourse(CourseCode) {
     if (!User_Token) {
         return console.log("Error: [Get Request Made with no Login Token] ");
     }
+    if(CourseCode==="Capitol"){
+        return console.log("Error: Cant Add Default ");
+    }
     let CourseSrruct = {coursecode: CourseCode};
     POSTRequest(WebAPI_Endpoints.AddCourse, CourseSrruct)
         .then((data) => {
             if (data.CourseCode) {
                 console.log("Added Course to Profile");
                 console.log(data);
-                addCourse(data.CourseCode,data.CourseName,data.CourseTags);
-                Get_Profile();
+                Get_Profile(UpdateCourseDisplayList())
             } else {
                 console.log("Error In Adding Course");
             }
@@ -127,9 +132,9 @@ function AddNewCourse(CourseCode) {
 }
 //--------------------------------------------------------------------------------------------
 function GetAllCourses(Callback) {
-    POSTRequest(WebAPI_Endpoints.GetAllCourses,{})
+    POSTRequest(WebAPI_Endpoints.GetAllCourses,{schooluuid:"7xrGCjKnEnQBB3oxP8K2iw=="})
         .then((data) => {
-            if (data.found) {
+            if (data) {
                 console.log("Received All Courses");
                 console.log(data);
                 localStorage.setItem('AllCourses', JSON.stringify(data));
@@ -152,15 +157,9 @@ function UpdateProfileData(school, degree, year,info,work,personal) {
             degreeyear: year
         }
     };
-    if(info){
         JSON_Profile.info = info;
-    }
-    if(work){
         JSON_Profile.work = work;
-    }
-    if(personal){
         JSON_Profile.personal = personal;
-    }
     POSTRequest(WebAPI_Endpoints.UpdateProfile,JSON_Profile)
         .then((data) => {
             if (data) {
@@ -169,7 +168,7 @@ function UpdateProfileData(school, degree, year,info,work,personal) {
                 let LoggedInUser = JSON.parse(localStorage.getItem('LoggedInUser'));
                 if (!(LoggedInUser.accounttype === "employer")) {
                     setTimeout(function () {
-                        location.href = "student_profile.html";
+                        location.href = "ProfilePage.html";
                     }, 100);
                 } else {
                     setTimeout(function () {
@@ -183,30 +182,34 @@ function UpdateProfileData(school, degree, year,info,work,personal) {
 }
 //--------------------------------------------------------------------------------------------
 //Function for Searching for Jobs With Tags from profile
-function SearchForJobStudent() {
-    Get_Profile();
-    let CurrentUser = JSON.parse(localStorage.getItem('LoggedInUser'));
+function SearchForJobStudent2(callabck) {
+   // Get_Profile();
+    var CurrentUser = JSON.parse(localStorage.getItem('LoggedInUser'));
     let TempTags = [];
     if (CurrentUser.ProfileData) {
-        for (let u = 0; u < CurrentUser.ProfileData.education.length; u++) {
-            for (let y = 0; y < CurrentUser.ProfileData.education[u].courses.length; y++) {
-                for (let w = 0; w < CurrentUser.ProfileData.education[u].courses[y].CourseTags.length; w++) {
-                    if (!TempTags.includes(CurrentUser.ProfileData.education[u].courses[y].CourseTags[w])) {
-                        TempTags.push(CurrentUser.ProfileData.education[u].courses[y].CourseTags[w]);
+        console.log("User Has ProfileData");
+            for (let y = 0; y < CurrentUser.ProfileData.education.courses.length; y++) {
+                for (let w = 0; w < CurrentUser.ProfileData.education.courses[y].CourseTags.length; w++) {
+                    console.log("User Has CourseTags "+CurrentUser.ProfileData.education.courses[y].CourseTags[w]);
+                    if (!TempTags.includes(CurrentUser.ProfileData.education.courses[y].CourseTags[w])) {
+                        TempTags.push(CurrentUser.ProfileData.education.courses[y].CourseTags[w]);
                     }
                 }
             }
-        }
     }
+    console.log("Temp Tags = "+TempTags);
     let TempRequestData = {tags: TempTags};
-    POSTRequest(WebAPI_Endpoints.SearchForStudent, TempRequestData)
+    POSTRequest(WebAPI_Endpoints.SearchforJob, TempRequestData)
         .then((data) => {
             if (data.Found !== 0) {
                 //Display Jobs to User
-                for(let i =0;i<data.Found;i++){
-                    console.log("THis is Job "+(i+1)+"'s Name"+data.Jobstoreturn[i].Job_Title);
+                for (let i = 0; i < data.Found; i++) {
+                    console.log("THis is Job " + (i + 1) + "'s Name" + data.Jobstoreturn[i].Job_Title);
                 }
-                console.log(data.Jobstoreturn);
+                if(callabck){
+                    return callabck(data.Jobstoreturn);
+                }
+                return (data.Jobstoreturn);
             }
         })
 }

@@ -164,6 +164,9 @@ exports.MatchCode = (req, res) => {
     } else {
         profile = Users.GetUserByToken(req.body.token).ProfileData;
     }
+    if(!profile.education){
+        profile.education = {};
+    }
     if(!profile.education.courses){
         profile.education.courses = [];
     }
@@ -201,6 +204,24 @@ exports.GetSchoolInfo = (req, res) => {
     }
 //Found SchoolID Return info
     return res.status(200).send(School_Array[Schoolindex]);
+};
+
+//function returns the school data to caller ending api call
+exports.GetAllClassesForUniversity = (req, res) => {
+    let missing = "";
+    if (!req.body.schooluuid) {
+        missing += "University's UUID, ";
+    }
+    if (missing.length > 0) {
+        return res.status(400).send("Error you are missing " + missing);
+    }
+    let Schoolindex = GetSchoolByID(req.body.schooluuid);
+    if (Schoolindex === -1) {
+        //No SchoolID Found Return Error
+        return res.status(400).send({error: true, data: "Error No School Info Found With ID School_ID"});
+    }
+//Found SchoolID Return info
+    return res.status(200).send(School_Array[Schoolindex].Courses_offered);
 };
 
 /**

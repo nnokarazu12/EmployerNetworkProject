@@ -105,10 +105,11 @@ app.post('/api/v2/data/schools/degree/course', [Schools.AddCourseToDegree]);
 app.post('/api/v2/data/schools/student', [Schools.AddStudentToSchool]);
 app.post('/api/v2/data/masteroveride/schools', [Schools.MasterOverrideAddSchool]);
 app.get('/api/v2/data/schools', [Schools.GetSchoolInfo]);
+app.get('/api/v2/data/schools', [Schools.GetSchoolInfo]);
 //TODO check for existing
 
 //Make employer calls
-
+app.post('/api/v2/data/allcourses',[Middleware.hasAuthToken, Middleware.hasAuthValidToken,Schools.GetAllClassesForUniversity]);
 app.post('/api/v2/data/Employer/NewJobListing', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,Org.NewJobListing]);
 app.post('/api/v2/data/Student/SearchForJobsWithTags', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,Users.SearchJobs_With_Tags]);
 app.post('/api/v2/data/Employers/SearchForStudentWithTags', [Middleware.hasAuthToken, Middleware.hasAuthValidToken,Users.SearchStudents_With_Tags]);

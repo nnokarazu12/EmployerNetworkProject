@@ -1,0 +1,292 @@
+.mediaViewInfo {
+    --web-view-name: Login Screen;
+    --web-view-id: Login_Screen;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+}
+:root {
+    --web-view-ids: Login_Screen;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+#Login_Screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17,38,68,1);
+    overflow: hidden;
+    --web-view-name: Login Screen;
+    --web-view-id: Login_Screen;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+}
+#Login_Container {
+    position: absolute;
+    width: 443px;
+    height: 359px;
+    left: 38%;
+    top: 340px;
+    overflow: visible;
+}
+#Component_1___1 {
+    position: absolute;
+    width: 443px;
+    height: 359px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+}
+.Rectangle_1 {
+    position: absolute;
+    overflow: visible;
+    width: 443px;
+    height: 359px;
+    left: 0px;
+    top: 0px;
+}
+.Line_1 {
+    overflow: visible;
+    position: absolute;
+    width: 308px;
+    height: 1px;
+    left: 68px;
+    top: 89px;
+    transform: matrix(1,0,0,1,0,0);
+}
+.Line_2 {
+    overflow: visible;
+    position: absolute;
+    width: 308px;
+    height: 1px;
+    left: 68px;
+    top: 139px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Enter_Your_Email_ID {
+    position: absolute;
+    left: 85px;
+    top: 66px;
+    overflow: visible;
+    width: 290px;
+    height: 25px;
+    white-space: nowrap;
+    line-height: 30px;
+    margin-top: -3px;
+    text-align: start;
+    font-family: Calibri, serif;
+    font-size: 16px;
+    color:black;
+    padding: 0 10px 0 5px;
+}
+#Password {
+    position: absolute;
+    left: 85px;
+    top: 116px;
+    overflow: visible;
+    width: 290px;
+    height: 25px;
+    white-space: nowrap;
+    line-height: 30px;
+    margin-top: -3px;
+    text-align: start;
+    font-family: Calibri, serif;
+    font-size: 16px;
+    color:black;
+    padding: 0 10px 0 5px;
+}
+.Icon_zocial_email {
+    overflow: visible;
+    position: absolute;
+    width: 12.279px;
+    height: 8.45px;
+    left: 67.5px;
+    top: 73.75px;
+    transform: matrix(1,0,0,1,0,0);
+}
+.Icon_metro_lock {
+    overflow: visible;
+    position: absolute;
+    width: 9.376px;
+    height: 11.822px;
+    left: 67.402px;
+    top: 120px;
+    transform: matrix(1,0,0,1,0,0);
+}
+.Line_3 {
+    overflow: visible;
+    position: absolute;
+    width: 308px;
+    height: 1px;
+    left: 67.5px;
+    top: 88.5px;
+    transform: matrix(1,0,0,1,0,0);
+}
+.StayLoggedinCheckBox {
+    position: absolute;
+    overflow: visible;
+    width: 22px;
+    height: 22px;
+    left: 68px;
+    top: 166px;
+}
+#Stay_Signed_In {
+    position: absolute;
+    left: 98px;
+    top: 169px;
+    overflow: visible;
+    width: 79px;
+    white-space: nowrap;
+    line-height: 30px;
+    margin-top: -8px;
+    text-align: center;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: rgba(151,151,151,1);
+}
+#ForgotPasswordBTN {
+    position: absolute;
+    width: 102px;
+    height: 17px;
+    left: 275px;
+    top: 169px;
+    overflow: visible;
+}
+#Forgot_Password_ {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+    width: 103px;
+    white-space: nowrap;
+    line-height: 30px;
+    margin-top: -8px;
+    text-align: center;
+    font-style: normal;
+    font-size: 12px;
+    color: rgba(17,38,68,1);
+    background-color: #ffffff;
+}
+
+.Rectangle_3 {
+    filter: drop-shadow(4px 5px 9px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    overflow: visible;
+    width: 115px;
+    height: 61px;
+    left: 0px;
+    top: 0px;
+}
+#SignupBTN {
+    position: absolute;
+    width: 88px;
+    height: 34px;
+    left: 187px;
+    top: 217px;
+    overflow: visible;
+    color: rgba(64,64,64,1);
+}
+#SignInBTN {
+    position: absolute;
+    width: 88px;
+    height: 34px;
+    left: 289px;
+    top: 217px;
+    overflow: visible;
+    color: rgba(64,64,64,1);
+}
+.Rectangle_3_ {
+    position: absolute;
+    width: 88px;
+    height: 34px;
+    background-color: #07b4ff;
+    color: rgb(246, 244, 255);
+    border-radius: 10px;
+}
+.Line_4 {
+    overflow: visible;
+    position: absolute;
+    width: 184px;
+    height: 1px;
+    left: 24.5px;
+    top: 282.5px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#OR {
+    position: absolute;
+    left: 213px;
+    top: 274px;
+    overflow: visible;
+    width: 19px;
+    white-space: nowrap;
+    line-height: 30px;
+    margin-top: -8px;
+    text-align: center;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgba(151,151,151,1);
+}
+.Line_5 {
+    overflow: visible;
+    position: absolute;
+    width: 184px;
+    height: 1px;
+    left: 235.5px;
+    top: 282.5px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#SignongoogleBTN {
+    position: absolute;
+    width: 141px;
+    height: 37px;
+    left: 45px;
+    top: 300px;
+    overflow: visible;
+}
+#NoPath___Copy__5_ {
+    position: absolute;
+    width: 141px;
+    height: 37px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+}
+#SignonGithub {
+    position: absolute;
+    width: 93px;
+    height: 38px;
+    left: 281px;
+    top: 300px;
+    overflow: visible;
+}
+#NoPath___Copy__7_ {
+    position: absolute;
+    width: 93px;
+    height: 38px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+}
+#Logophoto {
+    position: absolute;
+    width: 300px;
+    height: 176px;
+    left: 42%;
+    top: 133px;
+    overflow: visible;
+}
+#NoPath___Copy__14_ {
+    position: absolute;
+    width: 300px;
+    height: 176px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+}

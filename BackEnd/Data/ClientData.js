@@ -473,31 +473,28 @@ exports.SearchStudents_With_Tags = (req, res) =>{
     var Studentstoreturn = Middleware.SearchForStudentWithTag(req.body.tags);
     console.log(Studentstoreturn);
     if(Studentstoreturn.length === 0){
-        return res.status(402).send({Found:0,error:"No jobs with those tags Found",Tags:req.body.tags});
+        return res.status(402).send({Found:0,error:"No Student with those tags Found",Tags:req.body.tags});
     }
     return res.status(201).send({Found:Studentstoreturn.length,Studentstoreturn});
 };
 exports.SearchWithTag = (tag) => {
     let TempReturn = [];
     for (let i = 0; i < AllData.length; i++) {
-       // console.log(AllData[i].ProfileData);
+       console.log(AllData[i].ProfileData);
         if(AllData[i].ProfileData.education){
-            for (let j = 0; j < AllData[i].ProfileData.education.length; j++) {
-               // console.log(AllData[i].ProfileData.education[j]);
-                if(AllData[i].ProfileData.education[j].courses) {
-                    for (let y = 0; y < AllData[i].ProfileData.education[j].courses.length; y++) {
-                        //console.log(AllData[i].ProfileData.education[j].courses[y]);
-                        if(AllData[i].ProfileData.education[j].courses[y].CourseTags) {
-                            for (let d = 0; d < AllData[i].ProfileData.education[j].courses[y].CourseTags.length; d++) {
-                                if (AllData[i].ProfileData.education[j].courses[y].CourseTags[d].toLowerCase() === tag.toLowerCase()) {
+                if(AllData[i].ProfileData.education.courses) {
+                    for (let y = 0; y < AllData[i].ProfileData.education.courses.length; y++) {
+                        console.log(AllData[i].ProfileData.education.courses[y]);
+                        if(AllData[i].ProfileData.education.courses[y].CourseTags) {
+                            for (let d = 0; d < AllData[i].ProfileData.education.courses[y].CourseTags.length; d++) {
+                                if (AllData[i].ProfileData.education.courses[y].CourseTags[d].toLowerCase() === tag.toLowerCase()) {
                                     TempReturn.push(AllData[i]);
                                 }
-                                console.log(AllData[i].ProfileData.education[j].courses[y].CourseTags[d]);
+                                console.log(AllData[i].ProfileData.education.courses[y].CourseTags[d]);
                             }
                         }
                     }
                 }
-            }
         }
     }
     return TempReturn;

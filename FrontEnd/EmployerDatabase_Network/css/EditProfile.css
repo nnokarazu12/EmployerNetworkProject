@@ -1,0 +1,414 @@
+.mediaViewInfo {
+	--web-view-name: Edit Profile;
+	--web-view-id: Edit_Profile;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Edit_Profile;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Edit_Profile {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(17,38,68,1);
+	overflow: hidden;
+	--web-view-name: Edit Profile;
+	--web-view-id: Edit_Profile;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+#Banner {
+	position: absolute;
+	width: 100%;
+	height: 79px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.BannerFrame {
+	position: absolute;
+	overflow: visible;
+	width: 100%;
+	height: 79px;
+	left: 0px;
+	top: 0px;
+}
+#Logo {
+	position: absolute;
+	width: 232px;
+	height: 35.705px;
+	left: 49px;
+	top: 22px;
+	overflow: visible;
+}
+.pfp {
+	position: absolute;
+	overflow: visible;
+	width: 63px;
+	height: 63px;
+	left: 1806px;
+	top: 8px;
+}
+.pfptop {
+	position: absolute;
+	overflow: visible;
+	width: 63px;
+	height: 63px;
+	left: 1806px;
+	top: 8px;
+}
+#pfptop {
+	position: absolute;
+	overflow: visible;
+	width: 63px;
+	height: 63px;
+	left: 1806px;
+	top: 8px;
+	border-color: #908b91;
+	border-style: solid;
+	border-radius: 300px;
+}
+#search {
+	position: absolute;
+	width: 592px;
+	height: 50px;
+	left: 490px;
+	top: 15px;
+	overflow: visible;
+}
+.Searchtextframe {
+	position: absolute;
+	overflow: visible;
+	width: 592px;
+	height: 50px;
+	left: 0px;
+	top: 0px;
+}
+.SearchMinafineglass {
+	overflow: visible;
+	position: absolute;
+	width: 28.611px;
+	height: 28.616px;
+	left: 10.386px;
+	top: 10.387px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Search_For_jobs {
+	position: absolute;
+	left: 57.5px;
+	top: 10px;
+	overflow: visible;
+	width: 141px;
+	white-space: nowrap;
+	line-height: 30px;
+	margin-top: -3.5px;
+	text-align: center;
+	font-family: Calibri;
+	font-style: normal;
+	font-weight: lighter;
+	font-size: 23px;
+	color: rgba(151,151,151,1);
+}
+#Component_23___1 {
+	position: absolute;
+	width: 45px;
+	height: 44px;
+	left: 1105px;
+	top: 18px;
+	overflow: visible;
+}
+.SearchFrame {
+	position: absolute;
+	overflow: visible;
+	width: 45px;
+	height: 44px;
+	left: 0px;
+	top: 0px;
+}
+.Search_w {
+	overflow: visible;
+	position: absolute;
+	width: 44.317px;
+	height: 43.002px;
+	left: 0.3px;
+	top: 0.998px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#CardGroup {
+	position: absolute;
+	width: 310px;
+	height: 797px;
+	top: 117px;
+	left: 50%;
+	overflow: visible;
+	transform: translate(-50%, 0)
+}
+.Rectangle_23 {
+	position: absolute;
+	overflow: visible;
+	width: 310px;
+	height: 797px;
+	left: 0px;
+	top: 0px;
+}
+#EditGrouping {
+	position: absolute;
+	width: 237px;
+	height: 734px;
+	left: 37px;
+	top: 27px;
+	overflow: visible;
+}
+.Rectangle_16 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 31px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+.Rectangle_17 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 113px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+.Rectangle_18 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 196px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+.Rectangle_19 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 279px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+#First_Name_ {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Last_Name_ {
+	position: absolute;
+	left: 0px;
+	top: 82px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Email_Address_ {
+	position: absolute;
+	left: 0px;
+	top: 164px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Phone_Number_ {
+	position: absolute;
+	left: 0px;
+	top: 247px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+.Rectangle_24 {
+	position: absolute;
+	width: 237px;
+	height: 133px;
+	top: 362px;
+	font-family: Comic Sans MS, serif;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+#User_Bio_ {
+	position: absolute;
+	left: 0px;
+	top: 330px;
+	overflow: visible;
+	width: 238px;
+	height: 26px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+#Profile_Picture_URL_ {
+	position: absolute;
+	left: 0px;
+	top: 511px;
+	overflow: visible;
+	width: 238px;
+	height: 25px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+.Rectangle_25 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 542px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+#Personal_Resume_URL {
+	position: absolute;
+	left: 0px;
+	top: 593px;
+	overflow: visible;
+	width: 238px;
+	height: 25px;
+	line-height: 30px;
+	margin-top: -6px;
+	text-align: left;
+	font-family: Comic Sans MS;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	color: rgba(100,100,100,1);
+}
+.Rectangle_26 {
+	position: absolute;
+	overflow: visible;
+	width: 237px;
+	height: 35px;
+	left: 0px;
+	top: 624px;
+	text-align: left;
+	font-family: Comic Sans MS, serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(100,100,100,1);
+	background-color: #f9f9f9;
+	border-style: solid;
+	border-color: #b3b8cd;
+}
+.Back {
+	position: absolute;
+	overflow: visible;
+	width: 97px;
+	height: 43px;
+	left: 10px;
+	top: 691px;
+	background-color: #07b4ff;
+	color: rgb(255, 255, 255);
+}
+.Submit {
+	position: absolute;
+	overflow: visible;
+	width: 97px;
+	height: 43px;
+	left: 129px;
+	top: 691px;
+	background-color: #07b4ff;
+	color: rgb(255, 255, 255);
+}

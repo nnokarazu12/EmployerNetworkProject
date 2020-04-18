@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/LoginScreen.css" rel="stylesheet" />
+	<script src="libraries/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="libraries/bootstrap.js" type="text/javascript"></script>
+	<script src="libraries/WebApi.js" type="text/javascript"></script>
+	<script src="scripts.js"></script>
+<title>Login</title>
+</head>
+<body>
+<div id="Login_Screen">
+	<div id="Login_Container" class="Component_3___1">
+		<div id="Component_1___1" class="Component_1___1">
+			<svg class="Rectangle_1">
+				<rect fill="rgba(255,255,255,1)" id="Rectangle_1" rx="0" ry="0" x="0" y="0" width="443" height="359">
+				</rect>
+			</svg>
+		</div>
+		<svg class="Line_1" viewBox="0 0 308 1">
+			<path fill="transparent" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Line_1" d="M 0 0 L 308 0">
+			</path>
+		</svg>
+		<svg class="Line_2" viewBox="0 0 308 1">
+			<path fill="transparent" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Line_2" d="M 0 0 L 308 0">
+			</path>
+		</svg>
+		<form>
+			<input type="email" id="Enter_Your_Email_ID" name="Login_Email" value="Enter Email ID"><br>
+			<input type="password" id="Password" name="Login_Password" value=""><br>
+		</form>
+
+		<svg class="Icon_zocial_email" viewBox="0.072 4.068 12.279 8.45">
+			<path fill="rgba(151,151,151,1)" id="Icon_zocial_email" d="M 0.07199999690055847 11.76958751678467 L 0.07199999690055847 4.816429138183594 C 0.07199999690055847 4.808382034301758 0.08384053409099579 4.731928825378418 0.1075216084718704 4.587071418762207 L 4.121463298797607 8.08779239654541 L 0.1193623244762421 12.01101589202881 C 0.08778755366802216 11.89834785461426 0.07200019061565399 11.81787300109863 0.07200019061565399 11.76958751678467 Z M 0.6048241853713989 4.104213714599609 C 0.6600800156593323 4.080070495605469 0.7271762490272522 4.067999839782715 0.8061132431030273 4.067999839782715 L 11.61652374267578 4.067999839782715 C 11.68756675720215 4.067999839782715 11.7586088180542 4.080070495605469 11.82965183258057 4.104213714599609 L 7.803871154785156 7.617006301879883 L 7.27104663848877 8.051577568054199 L 6.217237949371338 8.932794570922852 L 5.163430690765381 8.051577568054199 L 4.630606174468994 7.617006301879883 L 0.6048241853713989 4.104213714599609 Z M 0.6166646480560303 12.48180294036865 L 4.654287815093994 8.53443717956543 L 6.217239379882813 9.826084136962891 L 7.780189037322998 8.53443717956543 L 11.8178129196167 12.48180294036865 C 11.75466442108154 12.50594329833984 11.68756675720215 12.51801586151123 11.61652374267578 12.51801586151123 L 0.8061136603355408 12.51801586151123 C 0.742963969707489 12.51801586151123 0.6798143982887268 12.50594329833984 0.6166649460792542 12.48180294036865 Z M 8.313014030456543 8.08779239654541 L 12.31511497497559 4.587071418762207 C 12.33879661560059 4.659501075744629 12.35063743591309 4.735953330993652 12.35063743591309 4.81643009185791 L 12.35063743591309 11.76958751678467 C 12.35063743591309 11.84201526641846 12.33879661560059 11.92249011993408 12.31511497497559 12.01101589202881 L 8.313014030456543 8.08779239654541 Z">
+			</path>
+		</svg>
+		<svg class="Icon_metro_lock" viewBox="6.427 3.856 9.376 11.822">
+			<path fill="rgba(151,151,151,1)" id="Icon_metro_lock" d="M 6.42676830291748 15.67819690704346 L 6.42676830291748 9.155643463134766 L 7.649746894836426 9.155643463134766 L 7.649746894836426 7.117344856262207 C 7.649746894836426 5.316304206848145 9.109575271606445 3.856067180633545 10.91102409362793 3.856067180633545 L 11.31868267059326 3.856067180633545 C 13.11972332000732 3.856067180633545 14.57996082305908 5.316304206848145 14.57996082305908 7.117344856262207 L 14.57996082305908 9.155643463134766 L 15.80293846130371 9.155643463134766 L 15.80293846130371 15.67819690704346 L 6.426767826080322 15.67819690704346 Z M 10.80666351318359 12.33008670806885 L 10.50336456298828 14.4552173614502 L 11.72634410858154 14.4552173614502 L 11.42263698577881 12.33008670806885 C 11.71982097625732 12.20860385894775 11.93017292022705 11.91712856292725 11.93017292022705 11.57591724395752 C 11.93017292022705 11.12586212158203 11.56490993499756 10.76059722900391 11.11485385894775 10.76059722900391 C 10.66438961029053 10.76059722900391 10.29953384399414 11.1258602142334 10.29953384399414 11.57591724395752 C 10.29953384399414 11.91712856292725 10.50947856903076 12.2086067199707 10.80666351318359 12.33008670806885 Z M 13.35698127746582 7.321175098419189 C 13.35698127746582 6.082704067230225 12.35291767120361 5.07904577255249 11.11485385894775 5.07904577255249 C 9.876382827758789 5.07904577255249 8.872724533081055 6.082704067230225 8.872724533081055 7.321175098419189 L 8.872724533081055 9.155643463134766 L 13.35698127746582 9.155643463134766 L 13.35698127746582 7.321175098419189 Z">
+			</path>
+		</svg>
+		<svg class="Line_3" viewBox="0 0 308 1">
+			<path fill="transparent" stroke="rgba(17,38,68,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Line_3" d="M 0 0 L 308 0">
+			</path>
+		</svg>
+		<svg class="StayLoggedinCheckBox">
+			<rect fill="rgba(255,255,255,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="StayLoggedinCheckBox" rx="0" ry="0" x="0" y="0" width="22" height="22">
+			</rect>
+		</svg>
+		<div id="Stay_Signed_In">
+			<span>Stay Signed In</span>
+		</div>
+		<div id="ForgotPasswordBTN" class="ForgotPasswordBTN">
+				<input id="Forgot_Password_" value="Forgot Password?" type="submit" onclick=""/>
+		</div>
+
+		<div id="SignInBTN" class="SignInBTN">
+			<input class="Rectangle_3_" value="Login" type="submit" onclick="User_login(document.getElementById('Enter_Your_Email_ID').value, document.getElementById('Password').value);"/>
+		</div>
+		<div id="SignupBTN" class="SignupBTN">
+			<input class="Rectangle_3_" value="Sign Up" type="submit" onclick="location.href = 'Register2.html'"/>
+		</div>
+
+		<svg class="Line_4" viewBox="0 0 184 1">
+			<path fill="transparent" stroke="rgba(151,151,151,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Line_4" d="M 0 0 L 184 0">
+			</path>
+		</svg>
+		<div id="OR">
+			<span>OR</span>
+		</div>
+		<svg class="Line_5" viewBox="0 0 184 1">
+			<path fill="transparent" stroke="rgba(151,151,151,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Line_5" d="M 0 0 L 184 0">
+			</path>
+		</svg>
+		<div id="SignongoogleBTN" class="SignongoogleBTN">
+			<img id="NoPath___Copy__5_" src="images/NoPath___Copy__5_.png" srcset="images/NoPath___Copy__5_.png 1x, images/NoPath___Copy__5_@2x.png 2x">
+		</div>
+		<div id="SignonGithub" class="SignonGithub">
+			<img id="NoPath___Copy__7_" src="images/NoPath___Copy__7_.png" srcset="images/NoPath___Copy__7_.png 1x, images/NoPath___Copy__7_@2x.png 2x">
+		</div>
+	</div>
+	<div id="Logophoto" class="Logophoto">
+		<img id="NoPath___Copy__14_" src="images/NoPath___Copy__14_.png" srcset="images/NoPath___Copy__14_.png 1x, images/NoPath___Copy__14_@2x.png 2x">
+	</div>
+</div>
+</body>
+</html>
